@@ -57,24 +57,24 @@ public class Game
     protected String playerUsername;
     
     /**
-     * Area for this round.
-     */
-    protected Area playerArea;
-    /**
      * Constructor for a new game without parameters.
      */
     public Game()
     {
         this.playerScore = Game.playerScoreDefault;
-        this.playerName = "Player1";
-        this.nbLife = Game.nbLifeDefault;
+        this.playerUsername = "Player1";
+        this.nbPlayerLife = Game.nbLifeDefault;
     }
     
+    /**
+     * Constructor for a new game with userName
+     * @param userName userName choosen by the user
+     */
     public Game(String userName)
     {
     	this.playerScore = Game.playerScoreDefault;
-    	this.playerName = userName;
-    	this.nbLife = Game.nbLifeDefault;
+    	this.playerUsername = userName;
+    	this.nbPlayerLife = Game.nbLifeDefault;
     }
     
     /**
