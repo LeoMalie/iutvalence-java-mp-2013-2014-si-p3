@@ -1,5 +1,6 @@
 package fr.iutvalence.java.mp.p3;
 
+//TODO (fix) comment is not understandable
 /**
  * This class provides to operate Area
  * An area is supposed to be an array[][] :
@@ -14,6 +15,8 @@ package fr.iutvalence.java.mp.p3;
  */
 public class Area
 {
+    // TODO (fix) clarify what is "value of an area")
+    // TODO (fix) constant name does not comply to naming conventions 
     /**
      * Maximum value for an area (also default value).
      */
