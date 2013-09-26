@@ -1,9 +1,8 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO (fix) comment is not understandable
+// TODO FIXED comment is not understandable
 /**
- * This class provides to operate Car
- * (We'll probably have to differentiate an user car and a "bot" car)
+ * This class provides operations with a car
  * @author maliel
  *
  */

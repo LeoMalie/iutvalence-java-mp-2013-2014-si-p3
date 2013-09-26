@@ -1,8 +1,8 @@
 package fr.iutvalence.java.mp.p3;
 
-//TODO (fix) comment is not understandable
+//TODO FIXED comment is not understandable
 /**
- * This class provides to operate Area
+ * This class provides interactions for area
  * An area is supposed to be an array[][] :
  * ______
  * |     |
@@ -15,12 +15,12 @@ package fr.iutvalence.java.mp.p3;
  */
 public class Area
 {
-    // TODO (fix) clarify what is "value of an area")
-    // TODO (fix) constant name does not comply to naming conventions 
+    // TODO FIXED clarify what is "value of an area")
+    // TODO FIXED constant name does not comply to naming conventions 
     /**
-     * Maximum value for an area (also default value).
+     * Maximum size of the array (also default value).
      */
-    private final static int sizeMax = 100;
+    private final static int SIZEMAX = 100;
     
     /**
      * Current value for the area.

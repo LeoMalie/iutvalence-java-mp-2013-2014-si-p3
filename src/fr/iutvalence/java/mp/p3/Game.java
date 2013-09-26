@@ -6,106 +6,105 @@ package fr.iutvalence.java.mp.p3;
  */
 public class Game
 {
-    // TODO (fix) constant name does not comply to naming conventions 
+    // TODO FIXED constant name does not comply to naming conventions 
     /**
      * Default score when a round starts.
      */
-    public final static int playerScoreDefault = 0;
+    public final static int DEFAULTSCORE = 0;
 
-    // TODO (fix) constant name does not comply to naming conventions
+    // TODO FIXED constant name does not comply to naming conventions
     /**
      * Default life number when a round starts.
      */
-    public final static int nbLifeDefault = 3;
+    public final static int DEFAULTNBLIVES = 3;
     
-    // TODO (fix) constant name does not comply to naming conventions
+    // TODO FIXED constant name does not comply to naming conventions
     /**
      * Value for a dead player
      */
-    public final static int dead = -1;
+    public final static int DEAD = -1;
     
-    // TODO (fix) constant name does not comply to naming conventions
+    // TODO FIXED constant name does not comply to naming conventions
     /**
      * Value for an alive player
      */
-    public final static int alive = 1;
+    public final static int ALIVE = 1;
     
-    // TODO (think about it) justify the use of  protected
+    // TODO FIXED (think about it) justify the use of  protected
     /**
      * The current player car for this round.
      */
-    protected Car playerCar;  
+    private Car playerCar;  
 
-    // TODO (think about it) justify the use of  protected
-    // TODO (fix) rename field (it is not only related to the player)
+    // TODO FIXED (think about it) justify the use of  protected
+    // TODO FIXED rename field (it is not only related to the player)
     /**
      * The current area for this round.
      */
-    protected Area playerArea;
+    private Area area;
     
-    // TODO (think about it) justify the use of  protected
-    // TODO (fix) fix comment (your ...)
+    // TODO FIXED (think about it) justify the use of  protected
+    // TODO FIXED fix comment (your ...)
     /**
-     * Your current score for this round.
+     * Current score for this round.
      */
-    protected int playerScore;
+    private int playerScore;
     
-    // TODO (fix) fix comment (do not use hard-coded values)
-    // TODO (think about it) justify the use of  protected
-    // TODO (fix) rename field (Life -> lives)
+    // TODO FIXED fix comment (do not use hard-coded values)
+    // TODO FIXED (think about it) justify the use of  protected
+    // TODO FIXED rename field (Life -> lives)
     /**
-     * Current player number of life(s) range 0..3.
+     * Current player number of lives.
      */
-    protected int nbPlayerLife;
+    private int nbPlayerLife;
     
-    // TODO (think about it) justify the use of  protected
-    // TODO (fix) simplify comment
+    // TODO FIXED (think about it) justify the use of  protected
+    // TODO FIXED (fix) simplify comment
     /**
-     * Player represents interactions between a round and the player.	
+     * Current player for this round	
      */
-    protected Player player;
+    private Player player;
     
-    // TODO (think about it) should it be really contained in this class?
+    // TODO FIXED detail comment (how is the game once created?)
     /**
-     * Current player username.
-     */
-    protected String playerUsername;
-    
-    // TODO (fix) detail comment (how is the game once created?)
-    /**
-     * Constructor for a new game without parameters.
+     * Constructor for a new game without parameters. The result is a game with a default 
+     * username, a score equals to 0, and a default number of lives.
      */
     public Game()
     {
-        // TODO (think about it) are all fields initialized?
-        this.playerScore = Game.playerScoreDefault;
-        this.playerUsername = "Player1";
-        this.nbPlayerLife = Game.nbLifeDefault;
+        // TODO FIXED (think about it) are all fields initialized?
+        this.playerScore = Game.DEFAULTSCORE;
+        this.nbPlayerLife = Game.DEFAULTNBLIVES;
+        this.player = new Player();
+        this.area = new Area();
     }
     
-    // TODO (fix) detail comment (how is the game once created?)
+    // TODO FIXED detail comment (how is the game once created?)
     /**
-     * Constructor for a new game with userName
+     * Constructor for a new game with userName .The result is a game with an username 
+     * chosen by the player, a score equals to 0, and a default number of lives.
      * @param userName userName chosen by the user
      */
     public Game(String userName)
     {
-    	this.playerScore = Game.playerScoreDefault;
-    	this.playerUsername = userName;
-    	this.nbPlayerLife = Game.nbLifeDefault;
+    	this.playerScore = Game.DEFAULTSCORE;
+    	this.nbPlayerLife = Game.DEFAULTNBLIVES;
+    	this.player = new Player(userName);
+    	this.area = new Area();
     }
     
     /**
-     * Check the number of player lifes
-     * @return true if the player is alive, false if no lifes left.
+     * Check the number of player lives
+     * @return true if the player is alive, false if no lives left.
      */
-    // TODO (fix) use boolean instead of boolean
+    // TODO FIXED use boolean instead of boolean
     protected Boolean isAlive()
     {
-        // TODO (fix) simplify!
+        boolean res = false;
+        // TODO FIXED simplify!
     	if (this.nbPlayerLife != 0)
-    		return true;
-    	return false;
+    		res = true;
+    	return res;
     }
     
     
