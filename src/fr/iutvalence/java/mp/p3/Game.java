@@ -64,22 +64,7 @@ public class Game
      * Current player for this round	
      */
     private Player player;
-    
-    // TODO FIXED detail comment (how is the game once created?)
-    /**
-     * Constructor for a new game without parameters. The result is a game with a default 
-     * username, a score equals to 0, and a default number of lives.
-     */
-    public Game()
-    {
-        // TODO FIXED (think about it) are all fields initialized?
-        this.playerScore = Game.DEFAULTSCORE;
-        this.nbPlayerLife = Game.DEFAULTNBLIVES;
-        
-        this.player = new Player();
-        this.area = new Area();
-    }
-    
+      
     // TODO FIXED detail comment (how is the game once created?)
     /**
      * Constructor for a new game with userName .The result is a game with an username 
@@ -99,7 +84,7 @@ public class Game
      * @return true if the player is alive, false if no lives left.
      */
     // TODO FIXED use boolean instead of boolean
-    protected Boolean isAlive()
+    public Boolean isAlive()
     {
         boolean res = false;
         // TODO FIXED simplify!

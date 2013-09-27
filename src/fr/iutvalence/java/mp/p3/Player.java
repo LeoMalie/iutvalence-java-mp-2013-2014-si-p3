@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class Player
 {
     
-    // TODO FIXED (think about it) should it be really contained in this class?
     /**
      * Current player username.
      */
@@ -35,9 +34,9 @@ public class Player
     public Direction getDirection()
     {
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        char carac = str.charAt(0);
-        switch (carac)
+        int choice = sc.nextInt();
+        sc.close(); 
+        switch (choice)
         {
             case '4' :
                 return Direction.LEFT;
@@ -45,8 +44,6 @@ public class Player
                 return Direction.RIGHT;
             default :
                 return Direction.FIXED;
-        }
-        
+        }               
     }
-    //TODO create function to get player movement (FIXE/LEFT/RIGHT)
 }

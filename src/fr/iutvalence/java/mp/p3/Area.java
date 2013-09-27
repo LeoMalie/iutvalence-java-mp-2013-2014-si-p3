@@ -4,6 +4,7 @@ package fr.iutvalence.java.mp.p3;
 /**
  * This class provides interactions for area
  * An area is supposed to be an array[][] :
+ * 
  *  (0.0)______
  *      |     |
  *      |     |
@@ -28,6 +29,11 @@ public class Area
     private final static int SIZEHEIGHT = 20;  
     
     /**
+     * Playfield
+     */
+    private Square[][] road;
+    
+    /**
      * Default area constructor.
      * Create an array[width][height] of empty squares.
      */
@@ -39,7 +45,15 @@ public class Area
          for(int y = 0; y < road[y].length; y++)
              road[x][y] = Square.EMPTY;
         }
-    }
-
+    } 
     
+    /**
+     * This method provides to change the value of a square (EMPTY/USERCAR/BOTCAR)
+     * @param pos the square position that this function use
+     * @param s the new state that this function have to put in the square
+     */
+    public void changeSquare(Position pos, Square s)
+    {
+        this.road[pos.getX()][pos.getY()] = s;
+    }
 }
