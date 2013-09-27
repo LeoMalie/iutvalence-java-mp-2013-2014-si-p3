@@ -2,7 +2,7 @@ package fr.iutvalence.java.mp.p3;
 
 // TODO FIXED detail comment (what is a movement?)
 /**
- * This class provides a movement (a horizontal direction : LEFT/RIGHT/FIXE) from the player
+ * This class provides a movement (a horizontal direction : LEFT/RIGHT/FIXED) from the player
  * @author maliel
  *
  */
