@@ -75,6 +75,7 @@ public class Game
         // TODO FIXED (think about it) are all fields initialized?
         this.playerScore = Game.DEFAULTSCORE;
         this.nbPlayerLife = Game.DEFAULTNBLIVES;
+        
         this.player = new Player();
         this.area = new Area();
     }
