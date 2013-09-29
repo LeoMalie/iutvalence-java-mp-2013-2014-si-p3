@@ -6,45 +6,93 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
+// TODO Create constructor for enemy car
 public class Car
 {
     /**
-     * Horizontal position of the car
+     * Width size of the array[SIZEWIDTH][].
      */
-    private int positionX;
+    private final static int SIZEWIDTH = 10;
     
     /**
-     * Vertical position of the car
+     * Height size of the array[][SIZEHEIGHT].
      */
-    private int positionY;
+    private final static int SIZEHEIGHT = 20;  
     
     /**
-     * moveCarX provides to get the new position of the car
-     * @param d direction given by the player
-     * @return new positionX for the car
+     * Player car value
      */
-    public int moveCarX(Direction d)
+    public static final int PLAYER = 1;
+    
+    /**
+     * Enemy car value
+     */
+    public static final int ENEMY = 2;
+    
+    /**
+     * Value for a destroyed car
+     */
+    public static final boolean DEAD = false;
+    
+    /**
+     * Value for an "alive" car
+     */
+    public static final boolean ALIVE = true;
+    
+    /**
+     * Car position
+     */
+    private Position position;
+    
+    /**
+     * Car type (USERCAR/BOTCAR)
+     */
+    private Square typeCar;
+    
+    /**
+     * State car value (DEAD/ALIVE)
+     */
+    private boolean stateCar;
+    
+    /**
+     * Provides to create an USERCAR
+     */
+    public Car()
     {
-        switch(d)
-        {
-           case LEFT : 
-               this.positionX = this.positionX - 1;
-           case RIGHT :
-               this.positionX = this.positionX + 1;
-           default :
-               break;
-        }
-        return this.positionX;     
+        this.stateCar = ALIVE;
+        this.position = new Position(SIZEWIDTH / 2, SIZEHEIGHT - 1);
+        this.typeCar = Square.USERCAR;
     }
     
     /**
-     * moveCarY provides to get the new position of an enemy car. No parameters
-     * because the movement is automatic.
-     * @return new positionY for the car
+     * @return car position
      */
-    public int moveCarY()
+    public Position getPos()
     {
-        this.positionY = this.positionY + 1;
-        return this.positionY;
+        return this.position;
     }
+    
+    /**
+     * @return car state
+     */
+    public boolean getState()
+    {
+        return this.stateCar;
+    }
+    
+    /**
+     * @return car type
+     */
+    public Square getType()
+    {
+        return this.typeCar;
+    }
+    
+    /**
+     * Destroy a car (ALIVE to DEAD)
+     */
+    public void destroyCar()
+    {
+        this.stateCar = DEAD;
+    }    
 }
