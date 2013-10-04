@@ -76,6 +76,15 @@ public class Game
     {
     	return (this.nbPlayerLife != 0);
     }
+
+    /**
+     * This function will provide to start a game, for now just display 
+     * the road with the standart output
+     */
+    public void play()
+    {
+        System.out.println(this.area.toString());     
+    }
     
     
 }

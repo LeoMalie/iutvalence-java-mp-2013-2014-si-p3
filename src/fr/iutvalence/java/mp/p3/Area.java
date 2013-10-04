@@ -9,7 +9,7 @@ package fr.iutvalence.java.mp.p3;
  *      |     |
  *      |     |
  *      |     |
- *      |_____|(SIZEWIDTH,SIZEHEIGHT)
+ *      |_____|(SIZE_WIDTH,SIZE_HEIGHT)
  * 
  * @author maliel
  *
@@ -19,14 +19,14 @@ public class Area
     // TODO FIXED clarify what is "value of an area")
     // TODO FIXED constant name does not comply to naming conventions 
     /**
-     * Width size of the array[SIZEWIDTH][].
+     * Width size of the array[SIZE_WIDTH][].
      */
-    private final static int SIZEWIDTH = 10;
+    private final static int SIZE_WIDTH = 10;
     
     /**
-     * Height size of the array[][SIZEHEIGHT].
+     * Height size of the array[][SIZE_HEIGHT].
      */
-    private final static int SIZEHEIGHT = 20;  
+    private final static int SIZE_HEIGHT = 20;  
     
     /**
      * Playfield
@@ -39,11 +39,11 @@ public class Area
      */
     public Area()
     {
-        Square[][] road = new Square[SIZEWIDTH][SIZEHEIGHT];
-        for(int x = 0; x < (road.length); x++ )
+        this.road = new Square[SIZE_WIDTH][SIZE_HEIGHT];
+        for(int x = 0; x < SIZE_WIDTH; x++ )
         {
-         for(int y = 0; y < road[y].length; y++)
-             road[x][y] = Square.EMPTY;
+         for(int y = 0; y < SIZE_HEIGHT; y++)
+             this.road[x][y] = Square.EMPTY;
         }
     } 
     
@@ -56,4 +56,45 @@ public class Area
     {
         this.road[pos.getX()][pos.getY()] = s;
     }
+    
+    /**
+     * This function provides to get the kind of a square(x,y) in the road
+     * according to
+     * @param x line value
+     * @param y column value
+     * @return Square in (EMPTY/USER_CAR/BOT_CAR
+     */
+    public Square getKindSquare(int x, int y)
+    {
+        return this.road[x][y];
+    }
+
+    /**
+     * This function provides to stock the road of the current area in a 
+     * String square by square. For each end of line, the function adds '\n'
+     * to have a correct display of the road if needed to print it
+     * @return String representing each squares of the road
+     */
+    @Override
+    public String toString()
+    {
+        String testArea = "TEST ZONE DE JEU \n";
+        for(int y = 0; y < SIZE_HEIGHT; y++)
+        {
+            for(int x = 0; x < SIZE_WIDTH; x++)
+            {
+                switch(this.getKindSquare(x,y)) 
+                {
+                    case USER_CAR : testArea = testArea + "V";
+                    case BOT_CAR : testArea = testArea + "T";
+                    case EMPTY : testArea = testArea + ".";
+                }  
+            }
+            testArea = testArea + "\n";
+        }
+        testArea = testArea + "\0";
+        return testArea;
+    }
+    
+    
 }
