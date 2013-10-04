@@ -6,20 +6,20 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-// TODO Create constructor for enemy car
+// TODO FIXED Create constructor for enemy car
 public class Car
 {
     /**
-     * Width size of the array[SIZEWIDTH][].
+     * Width size of the array[SIZE_WIDTH][].
      */
-    // TODO (fix) comply with naming conventions
-    private final static int SIZEWIDTH = 10;
+    // TODO FIXED comply with naming conventions
+    private final static int SIZE_WIDTH = 10;
     
     /**
-     * Height size of the array[][SIZEHEIGHT].
+     * Height size of the array[][SIZE_HEIGHT].
      */
-    // TODO (fix) comply with naming conventions
-    private final static int SIZEHEIGHT = 20;  
+    // TODO FIXED comply with naming conventions
+    private final static int SIZE_HEIGHT = 20;  
     
     /**
      * Player car value
@@ -49,52 +49,69 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO (fix) rename field
-    private Square typeCar;
+    // TODO FIXED rename field
+    private Square kindOfCar;
     
     /**
      * State car value (DEAD/ALIVE)
      */
-    // TODO (fix) rename field
-    private boolean stateCar;
+    // TODO FIXED rename field
+    private boolean aliveCar;
     
-    // TODO (fix) write a "real" comment
+    // TODO FIXED write a "real" comment
     /**
-     * Provides to create an USERCAR
+     * Constructor provides to create an user or a bot car
+     * @param kindOfCar kind of car (user/bot), if empty no operations
      */
-    public Car()
+    public Car(Square kindOfCar)
     {
-        this.stateCar = ALIVE;
-        this.position = new Position(SIZEWIDTH / 2, SIZEHEIGHT - 1);
-        this.typeCar = Square.USERCAR;
+        if (kindOfCar == Square.USER_CAR)
+        {
+            this.aliveCar = ALIVE;
+            this.position = new Position(SIZE_WIDTH / 2, SIZE_HEIGHT - 1);
+            this.kindOfCar = Square.USER_CAR;
+        }
+        else if (kindOfCar == Square.USER_CAR)
+        {
+            int max = SIZE_WIDTH;
+            int min = 0;
+            int randomWidth;
+            randomWidth = min + (int)(Math.random() * ((max - min) + 1));
+            this.aliveCar = ALIVE;
+            this.position = new Position(randomWidth, 0);
+            this.kindOfCar = Square.BOT_CAR;
+        }
     }
     
-    // TODO (fix) rename method (more explicit)
-    // TODO (fix) finish writing comment
+    // TODO FIXED rename method (more explicit)
+    // TODO FIXED finish writing comment
     /**
-     * @return car position
+     * this function provides to get the current position of a car
+     * @return car current position (x,y)
      */
-    public Position getPos()
+    public Position getPositionCar()
     {
         return this.position;
     }
     
-    // TODO (fix) finish writing comment
+    // TODO FIXED finish writing comment
     /**
+     * this function provides to get the current state of a car
      * @return car state
      */
     public boolean getState()
     {
-        return this.stateCar;
+        return this.aliveCar;
     }
     
-    // TODO (fix) finish writing comment
+    // TODO FIXED finish writing comment
     /**
+     * this function provides to get the kind of a car
      * @return car type
      */
     public Square getType()
     {
-        return this.typeCar;
+        return this.kindOfCar;
     }
     
     /**
@@ -102,6 +119,6 @@ public class Car
      */
     public void destroyCar()
     {
-        this.stateCar = DEAD;
+        this.aliveCar = DEAD;
     }    
 }

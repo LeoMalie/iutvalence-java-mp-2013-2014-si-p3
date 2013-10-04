@@ -10,28 +10,28 @@ import java.util.Scanner;
  */
 public class Player
 {
-    // TODO (fix) comply with naming conventions   
+    // TODO FIXED comply with naming conventions   
     /**
      * Current player username.
      */
-    private String playerUsername;
+    private String playerUserName;
      
-    // TODO (fix) detail comment
+    // TODO FIXED detail comment
     /**
-     * Constructor for a define player
+     * This constructor provides to create a new player
      * @param userName chosen by the user
      */
     public Player(String userName)
     {
-        this.playerUsername = userName;
+        this.playerUserName = userName;
     }
     
-    // TODO (fix) fix comment
+    // TODO FIXED fix comment
     /**
-     * this function provides to get a direction enter by the user keyboard
-     * 4 for a left movement, 6 for a right movement
+     * This function provides to get a direction enter by the user keyboard
+     * char "4" for a left movement, char "6" for a right movement
      * if other values, the function return FIXED (= no movement)
-     * @return a direction
+     * @return direction
      */
     public Direction getDirection()
     {

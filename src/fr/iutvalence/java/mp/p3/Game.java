@@ -6,17 +6,17 @@ package fr.iutvalence.java.mp.p3;
  */
 public class Game
 {
-    // TODO (fix) constant name does not comply to naming conventions 
+    // TODO FIXED constant name does not comply to naming conventions 
     /**
      * Default score when a round starts.
      */
-    public final static int DEFAULTSCORE = 0;
+    public final static int DEFAULT_SCORE = 0;
 
-    // TODO (fix) constant name does not comply to naming conventions
+    // TODO FIXED constant name does not comply to naming conventions
     /**
      * Default life number when a round starts.
      */
-    public final static int DEFAULTNBLIVES = 3;
+    public final static int DEFAULT_NB_LIVES = 3;
     
     /**
      * Value for a dead player
@@ -61,8 +61,8 @@ public class Game
      */
     public Game(String userName)
     {
-    	this.playerScore = Game.DEFAULTSCORE;
-    	this.nbPlayerLife = Game.DEFAULTNBLIVES;
+    	this.playerScore = Game.DEFAULT_SCORE;
+    	this.nbPlayerLife = Game.DEFAULT_NB_LIVES;
     	this.player = new Player(userName);
     	this.area = new Area();
     }
@@ -71,14 +71,10 @@ public class Game
      * Check the number of player lives
      * @return true if the player is alive, false if no lives left.
      */
-    // TODO (fix) use boolean instead of Boolean
-    public Boolean isAlive()
+    // TODO FIXED use boolean instead of Boolean
+    public boolean isAlive()
     {
-        boolean res = false;
-        // TODO (fix) simplify!
-    	if (this.nbPlayerLife != 0)
-    		res = true;
-    	return res;
+    	return (this.nbPlayerLife != 0);
     }
     
     
