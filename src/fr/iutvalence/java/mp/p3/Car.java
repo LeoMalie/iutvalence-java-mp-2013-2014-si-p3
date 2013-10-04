@@ -12,11 +12,13 @@ public class Car
     /**
      * Width size of the array[SIZEWIDTH][].
      */
+    // TODO (fix) comply with naming conventions
     private final static int SIZEWIDTH = 10;
     
     /**
      * Height size of the array[][SIZEHEIGHT].
      */
+    // TODO (fix) comply with naming conventions
     private final static int SIZEHEIGHT = 20;  
     
     /**
@@ -47,13 +49,16 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
+    // TODO (fix) rename field
     private Square typeCar;
     
     /**
      * State car value (DEAD/ALIVE)
      */
+    // TODO (fix) rename field
     private boolean stateCar;
     
+    // TODO (fix) write a "real" comment
     /**
      * Provides to create an USERCAR
      */
@@ -64,6 +69,8 @@ public class Car
         this.typeCar = Square.USERCAR;
     }
     
+    // TODO (fix) rename method (more explicit)
+    // TODO (fix) finish writing comment
     /**
      * @return car position
      */
@@ -72,6 +79,7 @@ public class Car
         return this.position;
     }
     
+    // TODO (fix) finish writing comment
     /**
      * @return car state
      */
@@ -80,6 +88,7 @@ public class Car
         return this.stateCar;
     }
     
+    // TODO (fix) finish writing comment
     /**
      * @return car type
      */

@@ -10,12 +10,13 @@ import java.util.Scanner;
  */
 public class Player
 {
-    
+    // TODO (fix) comply with naming conventions   
     /**
      * Current player username.
      */
     private String playerUsername;
      
+    // TODO (fix) detail comment
     /**
      * Constructor for a define player
      * @param userName chosen by the user
@@ -25,6 +26,7 @@ public class Player
         this.playerUsername = userName;
     }
     
+    // TODO (fix) fix comment
     /**
      * this function provides to get a direction enter by the user keyboard
      * 4 for a left movement, 6 for a right movement

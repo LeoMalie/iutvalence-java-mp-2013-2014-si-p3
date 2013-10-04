@@ -12,11 +12,13 @@ public enum Square
      */
     EMPTY,
     
+    // TODO (fix) comply with naming conventions
     /**
      * User car in the square
      */
     USERCAR,
-    
+
+    // TODO (fix) comply with naming conventions
     /**
      * Bot car in the square
      */
