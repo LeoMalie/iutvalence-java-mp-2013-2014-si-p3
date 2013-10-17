@@ -10,8 +10,7 @@ public class Game
      * The current area for this round.
      */
     private Area area;
-    
-    // TODO FIXED rename field (Life -> lives)
+   
     /**
      * Is this player alive ?
      */
@@ -51,6 +50,9 @@ public class Game
             this.area.changeSquare(a.getPosition(), Square.BOT_CAR);
             // Road display
             System.out.println(this.area.toString());
+            
+            // TODO (fix) consider returning a boolean indicating a collision instead of using an
+            // exception (used to notify errors)
             try
             {
                 this.area.scrollRoad();

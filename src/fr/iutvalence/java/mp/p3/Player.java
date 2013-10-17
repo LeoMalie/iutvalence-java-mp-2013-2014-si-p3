@@ -20,12 +20,12 @@ public class Player
      */
     private int score;
     
+    // TODO (fix) declare constants as constants (and comply with naming conventions)
     /**
      * Init score when a player is created
      */
     private static final int initScore = 0;
      
-    // TODO FIXED detail comment (how is the player?)
     /**
      * This constructor provides to create a new player with a pseudo and a score = 0
      * @param userName chosen by the user
@@ -68,6 +68,7 @@ public class Player
      * if other values, the function return FIXED (= no movement)
      * @return direction
      */
+    // TODO (fix) consider for the moment that the player returns a random choice
     public Direction getDirection()
     {
         Scanner sc = new Scanner(System.in);

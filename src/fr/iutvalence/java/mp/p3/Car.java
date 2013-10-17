@@ -29,7 +29,6 @@ public class Car
      */
     public static final int ENEMY = 2;
     
-    // TODO FIXED is it related to the same constants declared in Game?
     /**
      * Value for a destroyed car
      */
@@ -66,6 +65,7 @@ public class Car
         //TODO switch
         if (kindOfCar == Square.USER_CAR)
         {
+            // TODO (fix) use direct boolea values instead of constants
             this.isAlive = ALIVE;
             this.position = new Position(SIZE_WIDTH / 2, SIZE_HEIGHT - 1);
             this.kindOfCar = Square.USER_CAR;

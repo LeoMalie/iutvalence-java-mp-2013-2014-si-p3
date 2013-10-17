@@ -5,8 +5,9 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-// TODO (fix) rename class
+// TODO (fix) rename class -> AreaContent ?
 // Is "StateSquare" a correct name ?
+
 public enum Square
 {
     /**
