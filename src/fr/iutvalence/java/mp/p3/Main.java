@@ -6,7 +6,6 @@ package fr.iutvalence.java.mp.p3;
  */
 public class Main
 {
-
     /**
      * Display road test for now
      * @param args not specified
@@ -14,7 +13,6 @@ public class Main
     public static void main(String[] args)
     {
        new Game("moi").play();
-
     }
 
 }

@@ -7,45 +7,15 @@ package fr.iutvalence.java.mp.p3;
 public class Game
 { 
     /**
-     * Default score when a round starts.
-     */
-    public final static int DEFAULT_SCORE = 0;
-
-    /**
-     * Default life number when a round starts.
-     */
-    public final static int DEFAULT_NB_LIVES = 3;
-    
-    /**
-     * Value for a dead player
-     */
-    public final static int DEAD = -1;
-    
-    /**
-     * Value for an alive player
-     */
-    public final static int ALIVE = 1;
-    
-    /**
-     * The current player car for this round.
-     */
-    private Car playerCar;  
-
-    /**
      * The current area for this round.
      */
     private Area area;
     
+    // TODO FIXED rename field (Life -> lives)
     /**
-     * Current score for this round.
+     * Is this player alive ?
      */
-    private int playerScore;
-    
-    // TODO (fix) rename field (Life -> lives)
-    /**
-     * Current player number of lives.
-     */
-    private int nbPlayerLife;
+    private boolean playerAlive;
     
     /**
      * Current player for this round	
@@ -59,20 +29,9 @@ public class Game
      */
     public Game(String userName)
     {
-    	this.playerScore = Game.DEFAULT_SCORE;
-    	this.nbPlayerLife = Game.DEFAULT_NB_LIVES;
+    	this.playerAlive = true;
     	this.player = new Player(userName);
     	this.area = new Area();
-    }
-    
-    /**
-     * Check the number of player lives
-     * @return true if the player is alive, false if no lives left.
-     */
-    // TODO (fix) this method should be internal (private)
-    private boolean isAlive()
-    {
-    	return (this.nbPlayerLife != 0);
     }
     
     /**
@@ -81,16 +40,30 @@ public class Game
      */
     public void play()
     {
+        // User car creation and placement
         Car b = new Car(Square.USER_CAR);
-        this.area.changeSquare(b.getPosition(), Square.USER_CAR);
-        while(this.isAlive())
+        this.area.changeSquare(b.getPosition(), Square.USER_CAR); 
+        // Main loop
+        while(this.playerAlive)
         {
+            // Enemy car creation and placement
             Car a = new Car(Square.BOT_CAR);
             this.area.changeSquare(a.getPosition(), Square.BOT_CAR);
+            // Road display
             System.out.println(this.area.toString());
-            this.area.scrollRoad();
-            //Game.sleep(2);
+            try
+            {
+                this.area.scrollRoad();
+            }
+            catch (UserBotCrashException e)
+            {
+                // Game over !
+                this.playerAlive = false;
+            }  
+            this.player.upScore();
         }
+        // Score display
+        System.out.println(this.player.getScore());
     }
     
     

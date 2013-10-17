@@ -11,18 +11,55 @@ import java.util.Scanner;
 public class Player
 {   
     /**
-     * Current player username.
+     * Current player pseudo.
      */
     private String name;
-     
-    // TODO (fix) detail comment (how is the player?)
+    
     /**
-     * This constructor provides to create a new player
+     * Player score
+     */
+    private int score;
+    
+    /**
+     * Init score when a player is created
+     */
+    private static final int initScore = 0;
+     
+    // TODO FIXED detail comment (how is the player?)
+    /**
+     * This constructor provides to create a new player with a pseudo and a score = 0
      * @param userName chosen by the user
      */
     public Player(String userName)
     {
         this.name = userName;
+        this.score = initScore;
+    }
+    
+    /**
+     * This function provides to grow up the player score
+     */
+    public void upScore()
+    {
+        this.score += 100;
+    }
+    
+    /**
+     * This function provides to get the player name
+     * @return player name
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+   
+    /**
+     * This function provides to get the player score
+     * @return player score
+     */
+    public int getScore()
+    {
+        return this.score;
     }
     
     /**

@@ -69,14 +69,48 @@ public class Area
         return this.road[x][y];
     }
     
-    public void scrollRoad()
+    /**
+     * This function provides to scroll the road 
+     * Line + 1 <-- line
+     * @exception UserBotCrashException if we have 2 values for 1 square
+     */
+    public void scrollRoad() throws UserBotCrashException
     {       
-        for(int indice_ligne = SIZE_HEIGHT - 1; indice_ligne > 0; indice_ligne--)
+        int indiceLigne = SIZE_HEIGHT - 1;
+        int indiceColonne = 0;
+        for (int i = 0; i < SIZE_WIDTH; i++)
         {
-            for(int indice_colonne = 0; indice_colonne < SIZE_WIDTH; indice_colonne++)
+            if (this.road[i][indiceLigne] == Square.BOT_CAR)
+                this.road[i][indiceLigne] = Square.EMPTY;
+        }
+        indiceLigne--;
+        while (indiceLigne >= 0)
+        {
+            while (indiceColonne < SIZE_WIDTH)
             {
-                this.road[indice_colonne][indice_ligne+1] = this.road[indice_colonne][indice_ligne];
+                if (this.road[indiceColonne][indiceLigne] == Square.BOT_CAR)
+                {
+                    try
+                    {
+                        switch(this.road[indiceColonne][indiceLigne + 1])
+                        {
+                            case EMPTY :  
+                                this.road[indiceColonne][indiceLigne + 1] = this.road[indiceColonne][indiceLigne];
+                                this.road[indiceColonne][indiceLigne] = Square.EMPTY;
+                                break;
+                            case BOT_CAR :
+                                this.road[indiceColonne][indiceLigne] = Square.EMPTY;
+                                break;
+                            case USER_CAR :
+                                throw new UserBotCrashException();
+                        }
+                    }
+                    catch (UserBotCrashException e){}
+                }
+                indiceColonne++;
             }
+            indiceColonne = 0;
+            indiceLigne--;
         }
     }
 

@@ -6,6 +6,7 @@ package fr.iutvalence.java.mp.p3;
  *
  */
 // TODO (fix) rename class
+// Is "StateSquare" a correct name ?
 public enum Square
 {
     /**

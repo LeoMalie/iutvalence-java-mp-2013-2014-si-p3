@@ -1,8 +1,9 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO (fix) comment is not understandable
+// TODO FIXED comment is not understandable
 /**
- * This class provides operations with a car
+ * This class is still useless but we don't want to delete it yet, some
+ * functions implemented could be useful in another class
  * @author maliel
  *
  */
@@ -28,7 +29,7 @@ public class Car
      */
     public static final int ENEMY = 2;
     
-    // TODO (fix) is it related to the same constants declared in Game?
+    // TODO FIXED is it related to the same constants declared in Game?
     /**
      * Value for a destroyed car
      */
