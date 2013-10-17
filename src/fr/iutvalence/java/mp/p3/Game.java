@@ -5,14 +5,12 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  */
 public class Game
-{
-    // TODO FIXED constant name does not comply to naming conventions 
+{ 
     /**
      * Default score when a round starts.
      */
     public final static int DEFAULT_SCORE = 0;
 
-    // TODO FIXED constant name does not comply to naming conventions
     /**
      * Default life number when a round starts.
      */
@@ -43,7 +41,7 @@ public class Game
      */
     private int playerScore;
     
-    // TODO FIXED rename field (Life -> lives)
+    // TODO (fix) rename field (Life -> lives)
     /**
      * Current player number of lives.
      */
@@ -71,7 +69,7 @@ public class Game
      * Check the number of player lives
      * @return true if the player is alive, false if no lives left.
      */
-    // TODO FIXED use boolean instead of Boolean
+    // TODO (fix) this method should be internal (private)
     public boolean isAlive()
     {
     	return (this.nbPlayerLife != 0);

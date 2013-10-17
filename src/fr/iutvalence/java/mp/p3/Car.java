@@ -1,24 +1,21 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO FIXED comment is not understandable
+// TODO (fix) comment is not understandable
 /**
  * This class provides operations with a car
  * @author maliel
  *
  */
-// TODO FIXED Create constructor for enemy car
 public class Car
 {
     /**
      * Width size of the array[SIZE_WIDTH][].
      */
-    // TODO FIXED comply with naming conventions
     private final static int SIZE_WIDTH = 10;
     
     /**
      * Height size of the array[][SIZE_HEIGHT].
      */
-    // TODO FIXED comply with naming conventions
     private final static int SIZE_HEIGHT = 20;  
     
     /**
@@ -31,6 +28,7 @@ public class Car
      */
     public static final int ENEMY = 2;
     
+    // TODO (fix) is it related to the same constants declared in Game?
     /**
      * Value for a destroyed car
      */
@@ -49,14 +47,13 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO FIXED rename field
     private Square kindOfCar;
     
     /**
      * State car value (DEAD/ALIVE)
      */
     // TODO FIXED rename field
-    private boolean aliveCar;
+    private boolean isAlive;
     
     // TODO FIXED write a "real" comment
     /**
@@ -67,7 +64,7 @@ public class Car
     {
         if (kindOfCar == Square.USER_CAR)
         {
-            this.aliveCar = ALIVE;
+            this.isAlive = ALIVE;
             this.position = new Position(SIZE_WIDTH / 2, SIZE_HEIGHT - 1);
             this.kindOfCar = Square.USER_CAR;
         }
@@ -77,19 +74,17 @@ public class Car
             int min = 0;
             int randomWidth;
             randomWidth = min + (int)(Math.random() * ((max - min) + 1));
-            this.aliveCar = ALIVE;
+            this.isAlive = ALIVE;
             this.position = new Position(randomWidth, 0);
             this.kindOfCar = Square.BOT_CAR;
         }
     }
     
-    // TODO FIXED rename method (more explicit)
-    // TODO FIXED finish writing comment
     /**
      * this function provides to get the current position of a car
      * @return car current position (x,y)
      */
-    public Position getPositionCar()
+    public Position getPosition()
     {
         return this.position;
     }
@@ -99,9 +94,9 @@ public class Car
      * this function provides to get the current state of a car
      * @return car state
      */
-    public boolean getState()
+    public boolean isAlive()
     {
-        return this.aliveCar;
+        return this.isAlive;
     }
     
     // TODO FIXED finish writing comment
@@ -109,7 +104,7 @@ public class Car
      * this function provides to get the kind of a car
      * @return car type
      */
-    public Square getType()
+    public Square getKind()
     {
         return this.kindOfCar;
     }
@@ -119,6 +114,6 @@ public class Car
      */
     public void destroyCar()
     {
-        this.aliveCar = DEAD;
+        this.isAlive = DEAD;
     }    
 }

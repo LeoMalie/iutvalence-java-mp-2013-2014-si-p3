@@ -5,6 +5,7 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
+// TODO (fix) rename class
 public enum Square
 {
     /**
