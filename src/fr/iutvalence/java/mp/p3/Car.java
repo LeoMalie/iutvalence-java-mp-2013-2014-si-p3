@@ -62,18 +62,19 @@ public class Car
      */
     public Car(Square kindOfCar)
     {
+        //TODO switch
         if (kindOfCar == Square.USER_CAR)
         {
             this.isAlive = ALIVE;
             this.position = new Position(SIZE_WIDTH / 2, SIZE_HEIGHT - 1);
             this.kindOfCar = Square.USER_CAR;
         }
-        else if (kindOfCar == Square.USER_CAR)
+        else if (kindOfCar == Square.BOT_CAR)
         {
             int max = SIZE_WIDTH;
             int min = 0;
             int randomWidth;
-            randomWidth = min + (int)(Math.random() * ((max - min) + 1));
+            randomWidth = min + (int)(Math.random() * max);
             this.isAlive = ALIVE;
             this.position = new Position(randomWidth, 0);
             this.kindOfCar = Square.BOT_CAR;

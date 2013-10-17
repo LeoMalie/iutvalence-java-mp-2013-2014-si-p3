@@ -70,18 +70,27 @@ public class Game
      * @return true if the player is alive, false if no lives left.
      */
     // TODO (fix) this method should be internal (private)
-    public boolean isAlive()
+    private boolean isAlive()
     {
     	return (this.nbPlayerLife != 0);
     }
-
+    
     /**
      * This function will provide to start a game, for now just display 
-     * the road with the standart output
+     * the road with the standard output
      */
     public void play()
     {
-        System.out.println(this.area.toString());     
+        Car b = new Car(Square.USER_CAR);
+        this.area.changeSquare(b.getPosition(), Square.USER_CAR);
+        while(this.isAlive())
+        {
+            Car a = new Car(Square.BOT_CAR);
+            this.area.changeSquare(a.getPosition(), Square.BOT_CAR);
+            System.out.println(this.area.toString());
+            this.area.scrollRoad();
+            //Game.sleep(2);
+        }
     }
     
     

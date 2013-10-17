@@ -62,11 +62,22 @@ public class Area
      * according to
      * @param x line value
      * @param y column value
-     * @return Square in (EMPTY/USER_CAR/BOT_CAR
+     * @return Square in (EMPTY/USER_CAR/BOT_CAR)
      */
     public Square getKindSquare(int x, int y)
     {
         return this.road[x][y];
+    }
+    
+    public void scrollRoad()
+    {       
+        for(int indice_ligne = SIZE_HEIGHT - 1; indice_ligne > 0; indice_ligne--)
+        {
+            for(int indice_colonne = 0; indice_colonne < SIZE_WIDTH; indice_colonne++)
+            {
+                this.road[indice_colonne][indice_ligne+1] = this.road[indice_colonne][indice_ligne];
+            }
+        }
     }
 
     /**
@@ -85,9 +96,9 @@ public class Area
             {
                 switch(this.getKindSquare(x,y)) 
                 {
-                    case USER_CAR : testArea = testArea + "V";
-                    case BOT_CAR : testArea = testArea + "T";
-                    case EMPTY : testArea = testArea + ".";
+                    case USER_CAR : testArea = testArea + "V"; break;
+                    case BOT_CAR : testArea = testArea + "T"; break;
+                    case EMPTY : testArea = testArea + "."; break;
                 }  
             }
             testArea = testArea + "\n";
