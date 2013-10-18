@@ -22,4 +22,20 @@ public enum Direction
      */
     FIXED;
     
+    /**
+     * This function provides to get a random direction
+     * @return a random direction
+     */
+    public static Direction getRandomDirection()
+    { 
+        switch(1 + (int)(Math.random() * 3))
+        {
+            case 1 :
+                return Direction.LEFT;
+            case 2 :
+                return Direction.RIGHT;
+            default :
+                return Direction.FIXED;
+        }
+    }
 }

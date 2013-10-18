@@ -21,17 +21,22 @@ public class Area
     /**
      * Width size of the array[SIZE_WIDTH][].
      */
-    private final static int SIZE_WIDTH = 10;
+    public final static int SIZE_WIDTH = 10;
     
     /**
      * Height size of the array[][SIZE_HEIGHT].
      */
-    private final static int SIZE_HEIGHT = 20;  
+    public final static int SIZE_HEIGHT = 20;  
     
     /**
      * Playfield
      */
-    private Square[][] road;
+    private AreaContent[][] road;
+    
+    /**
+     * User car
+     */
+    private Car userCar;
     
     /**
      * Default area constructor.
@@ -39,12 +44,15 @@ public class Area
      */
     public Area()
     {
-        this.road = new Square[SIZE_WIDTH][SIZE_HEIGHT];
+        this.road = new AreaContent[SIZE_WIDTH][SIZE_HEIGHT];
         for(int x = 0; x < SIZE_WIDTH; x++ )
         {
          for(int y = 0; y < SIZE_HEIGHT; y++)
-             this.road[x][y] = Square.EMPTY;
+             this.road[x][y] = AreaContent.EMPTY;
         }
+        // Initialization user car
+        this.userCar = new Car(AreaContent.USER_CAR);
+        changeSquare(this.userCar.getPosition(), AreaContent.USER_CAR);
     } 
     
     /**
@@ -52,7 +60,7 @@ public class Area
      * @param pos the square position that this function use
      * @param s the new state that this function have to put in the square
      */
-    public void changeSquare(Position pos, Square s)
+    public void changeSquare(Position pos, AreaContent s)
     {
         this.road[pos.getX()][pos.getY()] = s;
     }
@@ -64,7 +72,7 @@ public class Area
      * @param y column value
      * @return Square in (EMPTY/USER_CAR/BOT_CAR)
      */
-    public Square getKindSquare(int x, int y)
+    public AreaContent getKindSquare(int x, int y)
     {
         return this.road[x][y];
     }
@@ -72,47 +80,54 @@ public class Area
     /**
      * This function provides to scroll the road 
      * Line + 1 <-- line
-     * @exception UserBotCrashException if we have 2 values for 1 square
+     * @return boolean if collision return false, else true
      */
-    public void scrollRoad() throws UserBotCrashException
+    public boolean scrollRoad()
     {       
         int indiceLigne = SIZE_HEIGHT - 1;
         int indiceColonne = 0;
         for (int i = 0; i < SIZE_WIDTH; i++)
         {
-            if (this.road[i][indiceLigne] == Square.BOT_CAR)
-                this.road[i][indiceLigne] = Square.EMPTY;
+            if (this.road[i][indiceLigne] == AreaContent.BOT_CAR)
+                this.road[i][indiceLigne] = AreaContent.EMPTY;
         }
         indiceLigne--;
         while (indiceLigne >= 0)
         {
             while (indiceColonne < SIZE_WIDTH)
             {
-                if (this.road[indiceColonne][indiceLigne] == Square.BOT_CAR)
+                if (this.road[indiceColonne][indiceLigne] == AreaContent.BOT_CAR)
                 {
-                    try
+                    switch(this.road[indiceColonne][indiceLigne + 1])
                     {
-                        switch(this.road[indiceColonne][indiceLigne + 1])
-                        {
-                            case EMPTY :  
-                                this.road[indiceColonne][indiceLigne + 1] = this.road[indiceColonne][indiceLigne];
-                                this.road[indiceColonne][indiceLigne] = Square.EMPTY;
-                                break;
-                            case BOT_CAR :
-                                this.road[indiceColonne][indiceLigne] = Square.EMPTY;
-                                break;
-                            case USER_CAR :
-                                throw new UserBotCrashException();
-                        }
+                        case EMPTY :  
+                            this.road[indiceColonne][indiceLigne + 1] = this.road[indiceColonne][indiceLigne];
+                            this.road[indiceColonne][indiceLigne] = AreaContent.EMPTY;
+                            break;
+                        case BOT_CAR :
+                            this.road[indiceColonne][indiceLigne] = AreaContent.EMPTY;
+                            break;
+                        case USER_CAR :
+                            return false;
                     }
-                    catch (UserBotCrashException e){}
                 }
                 indiceColonne++;
             }
             indiceColonne = 0;
             indiceLigne--;
         }
+        return true;
     }
+    
+    /**
+     * This function provides to create a bot car on the area at 
+     * [1][random value]
+     */
+    public void initBotCar()
+    {
+        Car a = new Car(AreaContent.BOT_CAR);
+        changeSquare(a.getPosition(), AreaContent.BOT_CAR); 
+    } 
 
     /**
      * This function provides to stock the road of the current area in a 

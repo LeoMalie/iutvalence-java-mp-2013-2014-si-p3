@@ -12,12 +12,12 @@ public class Position
     /**
      * Horizontal value
      */
-    private final int x;
+    private int x;
     
     /**
      * Vertical value
      */
-    private final int y;
+    private int y;
     
     /**
      * Default constructor, initialize a position (0,0)
@@ -54,4 +54,31 @@ public class Position
     {
         return this.y;
     }
+    
+    /**
+     * This function provides to get the new player position according
+     * to the direction chosen by the user
+     * @param d (FIXED/RIGHT/LEFT) used to actualize player position
+     */
+    public void translateTo(Direction d)
+    {
+        int decallage = 0;
+        switch(d)
+        {
+            case FIXED : 
+                decallage = 0;
+                break;
+            case RIGHT :
+                decallage = 1;
+                break;
+            case LEFT :
+                decallage = -1;
+                break;
+        }
+        if (this.x + decallage <= Area.SIZE_WIDTH - 1 && this.x + decallage >= 0)
+            this.x += decallage;
+    }
+    
+    
+    
 }

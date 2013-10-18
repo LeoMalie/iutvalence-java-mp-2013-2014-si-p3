@@ -20,11 +20,11 @@ public class Player
      */
     private int score;
     
-    // TODO (fix) declare constants as constants (and comply with naming conventions)
+    // TODO FIXED declare constants as constants (and comply with naming conventions)
     /**
      * Init score when a player is created
      */
-    private static final int initScore = 0;
+    public static final int INIT_SCORE = 0;
      
     /**
      * This constructor provides to create a new player with a pseudo and a score = 0
@@ -33,7 +33,7 @@ public class Player
     public Player(String userName)
     {
         this.name = userName;
-        this.score = initScore;
+        this.score = INIT_SCORE;
     }
     
     /**

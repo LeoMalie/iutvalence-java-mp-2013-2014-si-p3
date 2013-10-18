@@ -34,34 +34,39 @@ public class Game
     }
     
     /**
+     * This function provides to move the user car (created in the area 
+     * constructor), set EMPTY value in old car position and USER_CAR in the 
+     * new
+     */
+    //private void moveUserCar()
+//    {
+//        this.area.changeSquare(this.area.userCar.getPosition(), AreaContent.EMPTY);
+//        this.userCar.move();
+//        changeSquare(this.userCar.getPosition(), AreaContent.USER_CAR);
+//    }
+    
+    /**
      * This function will provide to start a game, for now just display 
      * the road with the standard output
      */
     public void play()
     {
-        // User car creation and placement
-        Car b = new Car(Square.USER_CAR);
-        this.area.changeSquare(b.getPosition(), Square.USER_CAR); 
         // Main loop
         while(this.playerAlive)
         {
-            // Enemy car creation and placement
-            Car a = new Car(Square.BOT_CAR);
-            this.area.changeSquare(a.getPosition(), Square.BOT_CAR);
+            //this.moveUserCar();
+            
+            //TODO Remove in scrollRoad()
+            this.area.initBotCar();
+            
             // Road display
             System.out.println(this.area.toString());
             
-            // TODO (fix) consider returning a boolean indicating a collision instead of using an
+            // TODO FIXED consider returning a boolean indicating a collision instead of using an
             // exception (used to notify errors)
-            try
-            {
-                this.area.scrollRoad();
-            }
-            catch (UserBotCrashException e)
-            {
-                // Game over !
-                this.playerAlive = false;
-            }  
+            if (!this.area.scrollRoad())
+               // Game over !
+               this.playerAlive = false; 
             this.player.upScore();
         }
         // Score display

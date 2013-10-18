@@ -8,37 +8,7 @@ package fr.iutvalence.java.mp.p3;
  *
  */
 public class Car
-{
-    /**
-     * Width size of the array[SIZE_WIDTH][].
-     */
-    private final static int SIZE_WIDTH = 10;
-    
-    /**
-     * Height size of the array[][SIZE_HEIGHT].
-     */
-    private final static int SIZE_HEIGHT = 20;  
-    
-    /**
-     * Player car value
-     */
-    public static final int PLAYER = 1;
-    
-    /**
-     * Enemy car value
-     */
-    public static final int ENEMY = 2;
-    
-    /**
-     * Value for a destroyed car
-     */
-    public static final boolean DEAD = false;
-    
-    /**
-     * Value for an "alive" car
-     */
-    public static final boolean ALIVE = true;
-    
+{           
     /**
      * Car position
      */
@@ -47,7 +17,7 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    private Square kindOfCar;
+    private AreaContent kindOfCar;
     
     /**
      * State car value (DEAD/ALIVE)
@@ -60,25 +30,26 @@ public class Car
      * Constructor provides to create an user or a bot car
      * @param kindOfCar kind of car (user/bot), if empty no operations
      */
-    public Car(Square kindOfCar)
+    public Car(AreaContent kindOfCar)
     {
-        //TODO switch
-        if (kindOfCar == Square.USER_CAR)
+        switch(kindOfCar)
         {
-            // TODO (fix) use direct boolea values instead of constants
-            this.isAlive = ALIVE;
-            this.position = new Position(SIZE_WIDTH / 2, SIZE_HEIGHT - 1);
-            this.kindOfCar = Square.USER_CAR;
-        }
-        else if (kindOfCar == Square.BOT_CAR)
-        {
-            int max = SIZE_WIDTH;
-            int min = 0;
-            int randomWidth;
-            randomWidth = min + (int)(Math.random() * max);
-            this.isAlive = ALIVE;
-            this.position = new Position(randomWidth, 0);
-            this.kindOfCar = Square.BOT_CAR;
+            case USER_CAR :
+                // TODO FIXED use direct boolean values instead of constants
+                this.isAlive = true;
+                this.position = new Position(Area.SIZE_WIDTH / 2, Area.SIZE_HEIGHT - 1);
+                this.kindOfCar = AreaContent.USER_CAR;
+                break;
+            case BOT_CAR :
+                int max = Area.SIZE_WIDTH;
+                int min = 0;
+                int randomWidth;
+                randomWidth = min + (int)(Math.random() * max);
+                this.isAlive = true;
+                this.position = new Position(randomWidth, 0);
+                this.kindOfCar = AreaContent.BOT_CAR;
+                break;
+            default : break;
         }
     }
     
@@ -106,7 +77,7 @@ public class Car
      * this function provides to get the kind of a car
      * @return car type
      */
-    public Square getKind()
+    public AreaContent getKind()
     {
         return this.kindOfCar;
     }
@@ -116,6 +87,16 @@ public class Car
      */
     public void destroyCar()
     {
-        this.isAlive = DEAD;
+        this.isAlive = false;
     }    
+    
+    /**
+     * Move user car
+     */
+    public void move()
+    {
+        this.position.translateTo(Direction.getRandomDirection());
+    }
+    
+
 }
