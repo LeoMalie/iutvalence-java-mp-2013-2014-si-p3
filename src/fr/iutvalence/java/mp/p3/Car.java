@@ -91,12 +91,16 @@ public class Car
     }    
     
     /**
-     * Move user car
+     * Move user car according to the direction
+     * - If LEFT : column index - 1
+     * - If FIXED: no change
+     * - If RIGHT: column index + 1
+     * @param d direction to apply
+     * @return new position given by translateTo
      */
-    public void move()
+    public Position moveCar(Direction d)
     {
-        this.position.translateTo(Direction.getRandomDirection());
+        return this.position.translateTo(d);
     }
     
-
 }

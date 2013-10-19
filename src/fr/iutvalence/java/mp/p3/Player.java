@@ -16,6 +16,11 @@ public class Player
     private String name;
     
     /**
+     * Player car
+     */
+    private Car userCar;
+    
+    /**
      * Player score
      */
     private int score;
@@ -34,6 +39,7 @@ public class Player
     {
         this.name = userName;
         this.score = INIT_SCORE;
+        this.userCar = new Car(AreaContent.USER_CAR);
     }
     
     /**
@@ -63,12 +69,21 @@ public class Player
     }
     
     /**
+     * This function provides to get the player car
+     * @return player car
+     */
+    public Car getCar()
+    {
+        return this.userCar;
+    }
+    
+    /**
      * This function provides to get a direction enter by the user keyboard
      * char "4" for a left movement, char "6" for a right movement
      * if other values, the function return FIXED (= no movement)
      * @return direction
      */
-    // TODO (fix) consider for the moment that the player returns a random choice
+    // TODO FIXED consider for the moment that the player returns a random choice
     public Direction getDirection()
     {
         Scanner sc = new Scanner(System.in);
