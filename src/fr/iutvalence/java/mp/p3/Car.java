@@ -2,8 +2,8 @@ package fr.iutvalence.java.mp.p3;
 
 // TODO (fix) as this class is now useful, comment it properly
 /**
- * This class is still useless but we don't want to delete it yet, some
- * functions implemented could be useful in another class
+ * This function provides to create/move/destroy a car
+ * 
  * 
  * @author maliel
  * 
@@ -18,8 +18,8 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO (fix) consider using a boolean instead of AreaContent
-    private AreaContent kindOfCar;
+    // TODO FIXED consider using a boolean instead of AreaContent
+    private boolean kindOfCar;
 
     /**
      * State car value (DEAD/ALIVE)
@@ -32,27 +32,24 @@ public class Car
      * @param kindOfCar
      *            kind of car (user/bot), if empty no operations
      */
-    public Car(AreaContent kindOfCar)
+    public Car(boolean kindOfCar)
     {
-        switch (kindOfCar)
+        if (kindOfCar)
         {
-        case USER_CAR:
             this.isAlive = true;
             this.position = new Position(Area.SIZE_WIDTH / 2, Area.SIZE_HEIGHT - 1);
-            this.kindOfCar = AreaContent.USER_CAR;
-            break;
-        case BOT_CAR:
+            this.kindOfCar = true;
+        }
+        else
+        {
             int max = Area.SIZE_WIDTH;
             int min = 0;
             int randomWidth;
             randomWidth = min + (int) (Math.random() * max);
             this.isAlive = true;
             this.position = new Position(randomWidth, 0);
-            this.kindOfCar = AreaContent.BOT_CAR;
-            break;
-        default:
-            break;
-        }
+            this.kindOfCar = false;
+         }
     }
 
     /**
@@ -80,7 +77,7 @@ public class Car
      * 
      * @return car type
      */
-    public AreaContent getKind()
+    public boolean getKind()
     {
         return this.kindOfCar;
     }

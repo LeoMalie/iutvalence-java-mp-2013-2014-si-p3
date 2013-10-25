@@ -1,7 +1,5 @@
 package fr.iutvalence.java.mp.p3;
 
-import java.util.Scanner;
-
 /**
  * This class provides interactions with a movement (a horizontal direction :
  * LEFT/RIGHT/FIXED) from the player
@@ -42,7 +40,7 @@ public class Player
     {
         this.name = userName;
         this.score = INIT_SCORE;
-        this.userCar = new Car(AreaContent.USER_CAR);
+        this.userCar = new Car(true);
     }
 
     /**
@@ -93,18 +91,7 @@ public class Player
     // TODO (fix) consider for the moment that the player returns a random
     // choice
     public Direction getDirection()
-    {
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-        sc.close();
-        switch (choice)
-        {
-        case '4':
-            return Direction.LEFT;
-        case '6':
-            return Direction.RIGHT;
-        default:
-            return Direction.FIXED;
-        }
+    {  
+        return Direction.getRandomDirection();
     }
 }

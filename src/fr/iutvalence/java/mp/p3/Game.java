@@ -8,15 +8,14 @@ package fr.iutvalence.java.mp.p3;
 public class Game
 {
     /**
+     * Current display
+     */
+    private Affichage affichage;
+    
+    /**
      * The current area for this round.
      */
     private Area area;
-
-    // TODO (think about it) looks like a local variable, not a field
-    /**
-     * Is this player alive ?
-     */
-    private boolean playerAlive;
 
     /**
      * Current player for this round
@@ -33,45 +32,34 @@ public class Game
      */
     public Game(String userName)
     {
-        this.playerAlive = true;
+        this.affichage = new Affichage();
         this.player = new Player(userName);
         this.area = new Area();
     }
 
-    // TODO (fix) this method (internal) should be private
+    // TODO FIXED this method (internal) should be private
     /**
      * This function provides to move the user car (created in the area
      * constructor), set EMPTY value in old car position and USER_CAR in the new
      * 
+     * @param direction direction
      * @return true if no collision, else false
      */
-    public boolean moveUserCar()
+    private boolean moveUserCar(Direction direction)
     {
-        // wtf ! doesn't work...
-        Direction randomDirection = Direction.getRandomDirection();
 
-        if (this.player.getCar().getPosition().getX() + randomDirection.getValue() >= 0
-                && this.player.getCar().getPosition().getX() + randomDirection.getValue() <= Area.SIZE_WIDTH - 1)
-        {
-            if (this.area.getContent(this.player.getCar().getPosition().getX() + randomDirection.getValue(), 0) == AreaContent.EMPTY)
-            {
-                this.area.changeContent(this.player.getCar().getPosition(), AreaContent.EMPTY);
-                this.player.getCar().moveCar(randomDirection);
-                this.area.changeContent(this.player.getCar().getPosition(), AreaContent.USER_CAR);
-                return true;
-            }
-            // TODO (fix) simplify
-            else
-            {
-                return false;
-            }
-        }
-        // TODO (fix) simplify
-        else
-        {
+        if (!(this.player.getCar().getPosition().getX() + direction.getValue() >= 0
+                && this.player.getCar().getPosition().getX() + direction.getValue() <= Area.SIZE_WIDTH - 1))
             return true;
-        }
-
+        
+        if (!(this.area.getContent(this.player.getCar().getPosition().getX() + direction.getValue(), 0) == AreaContent.EMPTY))
+            return false;
+        
+        this.area.changeContent(this.player.getCar().getPosition(), AreaContent.EMPTY);
+        this.player.getCar().moveCar(direction);
+        this.area.changeContent(this.player.getCar().getPosition(), AreaContent.USER_CAR);
+        return true;
+        
     }
 
     /**
@@ -79,12 +67,12 @@ public class Game
      * 
      * @return boolean if collision return false, else true
      */
-    // TODO (fix) this method (internal) should be private
-    public boolean scrollRoad()
+    // TODO FIXED this method (internal) should be private
+    private boolean scrollRoad()
     {
         int indiceLigne = Area.SIZE_HEIGHT - 1;
         int indiceColonne = 0;
-        Car a = new Car(AreaContent.BOT_CAR);
+        Car a = new Car(false);
         this.area.changeContent(a.getPosition(), AreaContent.BOT_CAR);
         for (int i = 0; i < Area.SIZE_WIDTH; i++)
         {
@@ -126,18 +114,19 @@ public class Game
      */
     public void play()
     {
+        boolean playerAlive = true;
         // Main loop
-        while (this.playerAlive)
+        while (playerAlive)
         {
             // Road display
-            System.out.println(this.area.toString());
-            if (!this.scrollRoad() || !this.moveUserCar())
+            this.affichage.afficherZone(this.area.getRoad());
+            if (!this.scrollRoad() || !this.moveUserCar(this.player.getDirection()))
                 // Game over !
-                this.playerAlive = false;
+                playerAlive = false;
             this.player.upScore();
         }
         // Score display
-        System.out.println(this.player.getScore());
+        this.affichage.afficherScore(this.player.getScore());
     }
 
 }

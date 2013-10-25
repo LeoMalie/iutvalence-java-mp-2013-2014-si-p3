@@ -44,10 +44,19 @@ public class Area
                 this.road[x][y] = AreaContent.EMPTY;
         }
         // Initialization user car
-        this.userCar = new Car(AreaContent.USER_CAR);
+        this.userCar = new Car(true);
         changeContent(this.userCar.getPosition(), AreaContent.USER_CAR);
     }
 
+    /**
+     * This function provides to get the road
+     * @return road
+     */
+    public AreaContent[][] getRoad()
+    {
+        return this.road;
+    }
+    
     /**
      * This method provides to change the value of a content
      * (EMPTY/USERCAR/BOTCAR)
