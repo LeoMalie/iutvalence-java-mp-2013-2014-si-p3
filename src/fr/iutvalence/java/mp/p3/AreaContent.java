@@ -18,7 +18,7 @@ public enum AreaContent
      * User car in the square
      */
     USER_CAR,
-    
+
     /**
      * Bot car in the square
      */

@@ -10,8 +10,8 @@ public class Game
     /**
      * Current display
      */
-    private Affichage affichage;
-    
+    private Display display;
+
     /**
      * The current area for this round.
      */
@@ -23,7 +23,7 @@ public class Game
     private Player player;
 
     /**
-     * Constructor for a new game with userName .The result is a game with an
+     * Constructor for a new game with userName.The result is a game with an
      * username chosen by the player, a score equals to 0, and a default number
      * of lives.
      * 
@@ -32,34 +32,35 @@ public class Game
      */
     public Game(String userName)
     {
-        this.affichage = new Affichage();
+        this.display = new Display();
         this.player = new Player(userName);
         this.area = new Area();
     }
 
-    // TODO FIXED this method (internal) should be private
     /**
      * This function provides to move the user car (created in the area
      * constructor), set EMPTY value in old car position and USER_CAR in the new
      * 
-     * @param direction direction
+     * @param direction
+     *            direction
      * @return true if no collision, else false
      */
     private boolean moveUserCar(Direction direction)
     {
 
-        if (!(this.player.getCar().getPosition().getX() + direction.getValue() >= 0
-                && this.player.getCar().getPosition().getX() + direction.getValue() <= Area.SIZE_WIDTH - 1))
+        if (!(this.player.getCar().getPosition().getX() + direction.getValue() >= 0 && this.player.getCar()
+                .getPosition().getX()
+                + direction.getValue() <= Area.SIZE_WIDTH - 1))
             return true;
-        
-        if (!(this.area.getContent(this.player.getCar().getPosition().getX() + direction.getValue(), 0) == AreaContent.EMPTY))
+
+        if (!(this.area.getContentAt(this.player.getCar().getPosition().getX() + direction.getValue(), 0) == AreaContent.EMPTY))
             return false;
-        
-        this.area.changeContent(this.player.getCar().getPosition(), AreaContent.EMPTY);
+
+        this.area.changeContentAt(this.player.getCar().getPosition(), AreaContent.EMPTY);
         this.player.getCar().moveCar(direction);
-        this.area.changeContent(this.player.getCar().getPosition(), AreaContent.USER_CAR);
+        this.area.changeContentAt(this.player.getCar().getPosition(), AreaContent.USER_CAR);
         return true;
-        
+
     }
 
     /**
@@ -67,43 +68,46 @@ public class Game
      * 
      * @return boolean if collision return false, else true
      */
-    // TODO FIXED this method (internal) should be private
     private boolean scrollRoad()
     {
-        int indiceLigne = Area.SIZE_HEIGHT - 1;
-        int indiceColonne = 0;
+        // TODO (fix) simplify this method.
+        // check for collision first.
+        // use for loops instead of while
+        int lineNumber = Area.SIZE_HEIGHT - 1;
         Car a = new Car(false);
-        this.area.changeContent(a.getPosition(), AreaContent.BOT_CAR);
-        for (int i = 0; i < Area.SIZE_WIDTH; i++)
+        this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);
+        for (int columnNumber = 0; columnNumber < Area.SIZE_WIDTH; columnNumber++)
         {
-            if (this.area.getContent(i, indiceLigne) == AreaContent.BOT_CAR)
-                this.area.changeContent(new Position(i, indiceLigne), AreaContent.EMPTY);
+            if (this.area.getContentAt(columnNumber, lineNumber) == AreaContent.BOT_CAR)
+                this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
         }
-        indiceLigne--;
-        while (indiceLigne >= 0)
+        lineNumber--;
+        
+        while (lineNumber >= 0)
         {
-            while (indiceColonne < Area.SIZE_WIDTH)
+            int columnNumber = 0;
+            while (columnNumber < Area.SIZE_WIDTH)
             {
-                if (this.area.getContent(indiceColonne, indiceLigne) == AreaContent.BOT_CAR)
+                if (this.area.getContentAt(columnNumber, lineNumber) == AreaContent.BOT_CAR)
                 {
-                    switch (this.area.getContent(indiceColonne, indiceLigne + 1))
+                    switch (this.area.getContentAt(columnNumber, lineNumber + 1))
                     {
                     case EMPTY:
-                        this.area.changeContent(new Position(indiceColonne, indiceLigne + 1),
-                                this.area.getContent(indiceColonne, indiceLigne));
-                        this.area.changeContent(new Position(indiceColonne, indiceLigne), AreaContent.EMPTY);
+                        this.area.changeContentAt(new Position(columnNumber, lineNumber + 1),
+                                this.area.getContentAt(columnNumber, lineNumber));
+                        this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
                         break;
                     case BOT_CAR:
-                        this.area.changeContent(new Position(indiceColonne, indiceLigne), AreaContent.EMPTY);
+                        this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
                         break;
                     case USER_CAR:
                         return false;
                     }
                 }
-                indiceColonne++;
+                columnNumber++;
             }
-            indiceColonne = 0;
-            indiceLigne--;
+            columnNumber = 0;
+            lineNumber--;
         }
         return true;
     }
@@ -119,14 +123,14 @@ public class Game
         while (playerAlive)
         {
             // Road display
-            this.affichage.afficherZone(this.area.getRoad());
+            this.display.displayArea(this.area.getRoad());
             if (!this.scrollRoad() || !this.moveUserCar(this.player.getDirection()))
                 // Game over !
                 playerAlive = false;
             this.player.upScore();
         }
         // Score display
-        this.affichage.afficherScore(this.player.getScore());
+        this.display.displayScore(this.player.getScore());
     }
 
 }

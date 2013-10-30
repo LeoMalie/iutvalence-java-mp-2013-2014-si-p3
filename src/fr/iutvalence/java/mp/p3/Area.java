@@ -45,30 +45,31 @@ public class Area
         }
         // Initialization user car
         this.userCar = new Car(true);
-        changeContent(this.userCar.getPosition(), AreaContent.USER_CAR);
+        changeContentAt(this.userCar.getPosition(), AreaContent.USER_CAR);
     }
 
     /**
      * This function provides to get the road
+     * 
      * @return road
      */
     public AreaContent[][] getRoad()
     {
         return this.road;
     }
-    
+
     /**
      * This method provides to change the value of a content
      * (EMPTY/USERCAR/BOTCAR)
      * 
      * @param pos
      *            the content position this function use
-     * @param s
+     * @param newContent
      *            the new content that this function have to put in the square
      */
-    public void changeContent(Position pos, AreaContent s)
+    public void changeContentAt(Position pos, AreaContent newContent)
     {
-        this.road[pos.getX()][pos.getY()] = s;
+        this.road[pos.getX()][pos.getY()] = newContent;
     }
 
     /**
@@ -81,7 +82,8 @@ public class Area
      *            column value
      * @return Content in (EMPTY/USER_CAR/BOT_CAR)
      */
-    public AreaContent getContent(int x, int y)
+    // TODO (fix) use Position instead of int,int as parameters
+    public AreaContent getContentAt(int x, int y)
     {
         return this.road[x][y];
     }
@@ -101,7 +103,7 @@ public class Area
         {
             for (int x = 0; x < SIZE_WIDTH; x++)
             {
-                switch (this.getContent(x, y))
+                switch (this.getContentAt(x, y))
                 {
                 case USER_CAR:
                     testArea = testArea + "V";

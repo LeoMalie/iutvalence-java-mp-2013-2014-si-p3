@@ -7,8 +7,15 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  * 
  */
+// TODO (fix) you should separate the data associated with the player from the way the player
+// interacts with the game
 public class Player
 {
+    /**
+     * Init score when a player is created
+     */
+    public static final int INITIAL_SCORE = 0;
+
     /**
      * Current player pseudo.
      */
@@ -17,6 +24,7 @@ public class Player
     /**
      * Player car
      */
+    // TODO (fix) this field is already declared in Area
     private Car userCar;
 
     /**
@@ -24,14 +32,10 @@ public class Player
      */
     private int score;
 
-    /**
-     * Init score when a player is created
-     */
-    public static final int INIT_SCORE = 0;
-
+   
     /**
      * This constructor provides to create a new player with a pseudo and a
-     * score = 0
+     * default score
      * 
      * @param userName
      *            chosen by the user
@@ -39,7 +43,7 @@ public class Player
     public Player(String userName)
     {
         this.name = userName;
-        this.score = INIT_SCORE;
+        this.score = INITIAL_SCORE;
         this.userCar = new Car(true);
     }
 
@@ -88,10 +92,8 @@ public class Player
      * 
      * @return direction
      */
-    // TODO (fix) consider for the moment that the player returns a random
-    // choice
     public Direction getDirection()
-    {  
+    {
         return Direction.getRandomDirection();
     }
 }

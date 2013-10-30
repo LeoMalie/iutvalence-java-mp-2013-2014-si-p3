@@ -18,7 +18,7 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO FIXED consider using a boolean instead of AreaContent
+    // TODO (fix) rename field (more explicit : isUserCar?)
     private boolean kindOfCar;
 
     /**
@@ -49,7 +49,7 @@ public class Car
             this.isAlive = true;
             this.position = new Position(randomWidth, 0);
             this.kindOfCar = false;
-         }
+        }
     }
 
     /**
@@ -77,6 +77,7 @@ public class Car
      * 
      * @return car type
      */
+    // TODO (fix) rename method (more explicit isUSerCar?)
     public boolean getKind()
     {
         return this.kindOfCar;
