@@ -74,18 +74,14 @@ public class Area
 
     /**
      * This function provides to get the kind of a square(x,y) in the road
-     * according to
-     * 
-     * @param x
-     *            line value
-     * @param y
-     *            column value
+     * according to a position
+     * @param pos Position 
      * @return Content in (EMPTY/USER_CAR/BOT_CAR)
      */
-    // TODO (fix) use Position instead of int,int as parameters
-    public AreaContent getContentAt(int x, int y)
+    // TODO FIXED use Position instead of int,int as parameters
+    public AreaContent getContentAt(Position pos)
     {
-        return this.road[x][y];
+        return this.road[pos.getX()][pos.getY()];
     }
 
     /**
@@ -103,7 +99,7 @@ public class Area
         {
             for (int x = 0; x < SIZE_WIDTH; x++)
             {
-                switch (this.getContentAt(x, y))
+                switch (this.getContentAt(new Position(x, y)))
                 {
                 case USER_CAR:
                     testArea = testArea + "V";

@@ -32,8 +32,8 @@ public class Game
      */
     public Game(String userName)
     {
-        this.display = new Display();
-        this.player = new Player(userName);
+        this.display = new AsciiDisplay();
+        this.player = new RandomPlayer(userName);
         this.area = new Area();
     }
 
@@ -53,7 +53,7 @@ public class Game
                 + direction.getValue() <= Area.SIZE_WIDTH - 1))
             return true;
 
-        if (!(this.area.getContentAt(this.player.getCar().getPosition().getX() + direction.getValue(), 0) == AreaContent.EMPTY))
+        if (!(this.area.getContentAt(new Position(this.player.getCar().getPosition().getX() + direction.getValue(), 0)) == AreaContent.EMPTY))
             return false;
 
         this.area.changeContentAt(this.player.getCar().getPosition(), AreaContent.EMPTY);
@@ -78,7 +78,7 @@ public class Game
         this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);
         for (int columnNumber = 0; columnNumber < Area.SIZE_WIDTH; columnNumber++)
         {
-            if (this.area.getContentAt(columnNumber, lineNumber) == AreaContent.BOT_CAR)
+            if (this.area.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
                 this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
         }
         lineNumber--;
@@ -88,13 +88,13 @@ public class Game
             int columnNumber = 0;
             while (columnNumber < Area.SIZE_WIDTH)
             {
-                if (this.area.getContentAt(columnNumber, lineNumber) == AreaContent.BOT_CAR)
+                if (this.area.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
                 {
-                    switch (this.area.getContentAt(columnNumber, lineNumber + 1))
+                    switch (this.area.getContentAt(new Position(columnNumber, lineNumber + 1)))
                     {
                     case EMPTY:
                         this.area.changeContentAt(new Position(columnNumber, lineNumber + 1),
-                                this.area.getContentAt(columnNumber, lineNumber));
+                                this.area.getContentAt(new Position(columnNumber, lineNumber)));
                         this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
                         break;
                     case BOT_CAR:

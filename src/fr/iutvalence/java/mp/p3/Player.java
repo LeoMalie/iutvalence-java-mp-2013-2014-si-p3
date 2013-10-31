@@ -1,51 +1,35 @@
 package fr.iutvalence.java.mp.p3;
 
 /**
- * This class provides interactions with a movement (a horizontal direction :
- * LEFT/RIGHT/FIXED) from the player
- * 
+ * Control interface, provides to get a direction from the player
+ * Implemented by KeyboardPlayer (user) and RandomPlayer (bot)
  * @author maliel
- * 
+ *
  */
-// TODO (fix) you should separate the data associated with the player from the way the player
-// interacts with the game
-public class Player
+//TODO FIXED you should separate the data associated with the player from the way the player
+//interacts with the game
+abstract class Player
 {
     /**
      * Init score when a player is created
      */
     public static final int INITIAL_SCORE = 0;
-
+    
     /**
      * Current player pseudo.
      */
-    private String name;
+    protected String name;
 
     /**
      * Player car
      */
     // TODO (fix) this field is already declared in Area
-    private Car userCar;
+    protected Car userCar;
 
     /**
      * Player score
      */
-    private int score;
-
-   
-    /**
-     * This constructor provides to create a new player with a pseudo and a
-     * default score
-     * 
-     * @param userName
-     *            chosen by the user
-     */
-    public Player(String userName)
-    {
-        this.name = userName;
-        this.score = INITIAL_SCORE;
-        this.userCar = new Car(true);
-    }
+    protected int score;
 
     /**
      * This function provides to grow up the player score
@@ -84,16 +68,10 @@ public class Player
     {
         return this.userCar;
     }
-
+    
     /**
-     * This function provides to get a direction enter by the user keyboard char
-     * "4" for a left movement, char "6" for a right movement if other values,
-     * the function return FIXED (= no movement)
-     * 
-     * @return direction
+     * Get a direction according to the class of player selected
+     * @return direction to move to
      */
-    public Direction getDirection()
-    {
-        return Direction.getRandomDirection();
-    }
+    public abstract Direction getDirection();
 }

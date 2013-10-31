@@ -1,9 +1,9 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO (fix) as this class is now useful, comment it properly
+// TODO FIXED as this class is now useful, comment it properly
 /**
- * This function provides to create/move/destroy a car
- * 
+ * This function provides to create/move/destroy an user/bot car
+ * A car has a position, a type, and can be destroy if needed
  * 
  * @author maliel
  * 
@@ -18,8 +18,8 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO (fix) rename field (more explicit : isUserCar?)
-    private boolean kindOfCar;
+    // TODO FIXED rename field (more explicit : isUserCar?)
+    private boolean isUserCar;
 
     /**
      * State car value (DEAD/ALIVE)
@@ -38,7 +38,7 @@ public class Car
         {
             this.isAlive = true;
             this.position = new Position(Area.SIZE_WIDTH / 2, Area.SIZE_HEIGHT - 1);
-            this.kindOfCar = true;
+            this.isUserCar = true;
         }
         else
         {
@@ -48,7 +48,7 @@ public class Car
             randomWidth = min + (int) (Math.random() * max);
             this.isAlive = true;
             this.position = new Position(randomWidth, 0);
-            this.kindOfCar = false;
+            this.isUserCar = false;
         }
     }
 
@@ -77,10 +77,10 @@ public class Car
      * 
      * @return car type
      */
-    // TODO (fix) rename method (more explicit isUSerCar?)
-    public boolean getKind()
+    // TODO FIXED rename method (more explicit isUSerCar?)
+    public boolean isUserCar()
     {
-        return this.kindOfCar;
+        return this.isUserCar;
     }
 
     /**
