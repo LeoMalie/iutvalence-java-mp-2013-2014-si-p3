@@ -4,7 +4,7 @@ package fr.iutvalence.java.mp.p3;
  * Main class provides to start this game
  * 
  * @author maliel
- */
+ */ 
 public class Main
 {
     /**

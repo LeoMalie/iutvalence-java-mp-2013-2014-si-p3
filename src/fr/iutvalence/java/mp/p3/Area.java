@@ -56,7 +56,7 @@ public class Area
     public AreaContent[][] getRoad()
     {
         return this.road;
-    }
+    } 
 
     /**
      * This method provides to change the value of a content

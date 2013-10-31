@@ -25,7 +25,7 @@ abstract class Player
      */
     // TODO (fix) this field is already declared in Area
     protected Car userCar;
-
+ 
     /**
      * Player score
      */

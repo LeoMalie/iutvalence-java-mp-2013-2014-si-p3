@@ -46,7 +46,7 @@ public class GraphicDisplay implements Display
                 default:
                     testArea = testArea + "?";
                     break;
-                }
+                } 
             }
             testArea = testArea + "\n";
         }

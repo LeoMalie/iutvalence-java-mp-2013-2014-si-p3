@@ -4,7 +4,7 @@ package fr.iutvalence.java.mp.p3;
  * Test class for a player with random movements
  * @author maliel
  *
- */
+ */ 
 public class RandomPlayer extends Player
 {
     /**

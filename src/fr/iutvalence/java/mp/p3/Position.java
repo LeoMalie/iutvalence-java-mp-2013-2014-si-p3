@@ -69,7 +69,7 @@ public class Position
     {
         return this.y;
     }
-
+ 
     /**
      * This function provides to get the new player position according to the
      * direction chosen by the user

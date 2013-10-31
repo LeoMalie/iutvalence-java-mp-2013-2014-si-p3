@@ -45,7 +45,7 @@ public enum Direction
     public int getValue()
     {
         return this.valueDeplacement;
-    }
+    } 
 
     /**
      * This function provides to get a random direction

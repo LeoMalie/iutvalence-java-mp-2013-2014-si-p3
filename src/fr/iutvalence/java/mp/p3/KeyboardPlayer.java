@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author maliel
  * 
  */
-
+ 
 public class KeyboardPlayer extends Player
 {
     
