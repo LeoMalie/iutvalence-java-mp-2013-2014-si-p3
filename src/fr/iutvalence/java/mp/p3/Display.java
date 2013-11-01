@@ -14,6 +14,7 @@ public interface Display
      * @param Score
      *            score to display
      */
+    // TODO (fix) comply with naming conventions (parameters)
     public void displayScore(int Score);
 
     /**
@@ -22,6 +23,7 @@ public interface Display
      * @param Area
      *            road to display
      */
+    // TODO (fix) comply with naming conventions (parameters)
     public void displayArea(AreaContent[][] Area);
 
 }

@@ -78,7 +78,6 @@ public class Area
      * @param pos Position 
      * @return Content in (EMPTY/USER_CAR/BOT_CAR)
      */
-    // TODO FIXED use Position instead of int,int as parameters
     public AreaContent getContentAt(Position pos)
     {
         return this.road[pos.getX()][pos.getY()];

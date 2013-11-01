@@ -1,6 +1,6 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO FIXED as this class is now useful, comment it properly
+// TODO (fix) fix comment (this is not a function)
 /** 
  * This function provides to create/move/destroy an user/bot car
  * A car has a position, a type, and can be destroy if needed
@@ -18,7 +18,6 @@ public class Car
     /**
      * Car type (USERCAR/BOTCAR)
      */
-    // TODO FIXED rename field (more explicit : isUserCar?)
     private boolean isUserCar;
 
     /**
@@ -77,7 +76,6 @@ public class Car
      * 
      * @return car type
      */
-    // TODO FIXED rename method (more explicit isUSerCar?)
     public boolean isUserCar()
     {
         return this.isUserCar;

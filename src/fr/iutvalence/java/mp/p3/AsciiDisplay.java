@@ -13,6 +13,7 @@ public class AsciiDisplay implements Display
      * @param Score
      *            score to display
      */
+    // TODO (fix) comply with naming conventions (parameters)
     public void displayScore(int Score)
     {
         System.out.println(Score);
@@ -24,6 +25,7 @@ public class AsciiDisplay implements Display
      * @param Area
      *            road to display
      */
+    // TODO (fix) comply with naming conventions (parameters)
     public void displayArea(AreaContent[][] Area)
     {
         String testArea = "TEST ZONE DE JEU \n";
