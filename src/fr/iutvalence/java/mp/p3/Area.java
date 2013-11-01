@@ -82,6 +82,16 @@ public class Area
     {
         return this.road[pos.getX()][pos.getY()];
     }
+    
+    /**
+     * This function provides to get the player car
+     * 
+     * @return player car
+     */
+    public Car getCar()
+    {
+        return this.userCar;
+    }
 
     /**
      * This function provides to stock the road of the current area in a String

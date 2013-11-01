@@ -21,11 +21,7 @@ abstract class Player
      */
     protected String name;
 
-    /**
-     * Player car
-     */
-    // TODO (fix) this field is already declared in Area
-    protected Car userCar;
+    // TODO FIXED this field is already declared in Area
  
     /**
      * Player score
@@ -58,16 +54,6 @@ abstract class Player
     public int getScore()
     {
         return this.score;
-    }
-
-    /**
-     * This function provides to get the player car
-     * 
-     * @return player car
-     */
-    public Car getCar()
-    {
-        return this.userCar;
     }
     
     /**

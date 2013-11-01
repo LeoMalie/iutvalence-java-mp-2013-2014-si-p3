@@ -11,19 +11,19 @@ public interface Display
     /**
      * Score display
      * 
-     * @param Score
+     * @param score
      *            score to display
      */
-    // TODO (fix) comply with naming conventions (parameters)
-    public void displayScore(int Score);
+    // TODO FIXED comply with naming conventions (parameters)
+    public void displayScore(int score);
 
     /**
      * Area display
      * 
-     * @param Area
+     * @param area
      *            road to display
      */
-    // TODO (fix) comply with naming conventions (parameters)
-    public void displayArea(AreaContent[][] Area);
+    // TODO FIXED comply with naming conventions (parameters)
+    public void displayArea(AreaContent[][] area);
 
 }

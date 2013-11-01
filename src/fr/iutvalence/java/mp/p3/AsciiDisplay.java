@@ -10,30 +10,30 @@ public class AsciiDisplay implements Display
     /**
      * Score display
      * 
-     * @param Score
+     * @param score
      *            score to display
      */
-    // TODO (fix) comply with naming conventions (parameters)
-    public void displayScore(int Score)
+    // TODO FIXED comply with naming conventions (parameters)
+    public void displayScore(int score)
     {
-        System.out.println(Score);
+        System.out.println(score);
     }
 
     /**
      * Area display
      * 
-     * @param Area
+     * @param area
      *            road to display
      */
-    // TODO (fix) comply with naming conventions (parameters)
-    public void displayArea(AreaContent[][] Area)
+    // TODO FIXED comply with naming conventions (parameters)
+    public void displayArea(AreaContent[][] area)
     {
         String testArea = "TEST ZONE DE JEU \n";
         for (int y = 0; y < 20; y++)
         {
             for (int x = 0; x < 10; x++)
             {
-                switch (Area[x][y])
+                switch (area[x][y])
                 {
                 case USER_CAR:
                     testArea = testArea + "V";

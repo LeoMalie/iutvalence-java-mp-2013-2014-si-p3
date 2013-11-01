@@ -48,17 +48,17 @@ public class Game
     private boolean moveUserCar(Direction direction)
     {
 
-        if (!(this.player.getCar().getPosition().getX() + direction.getValue() >= 0 && this.player.getCar()
+        if (!(this.area.getCar().getPosition().getX() + direction.getValue() >= 0 && this.area.getCar()
                 .getPosition().getX()
                 + direction.getValue() <= Area.SIZE_WIDTH - 1))
             return true;
 
-        if (!(this.area.getContentAt(new Position(this.player.getCar().getPosition().getX() + direction.getValue(), 0)) == AreaContent.EMPTY))
+        if (!(this.area.getContentAt(new Position(this.area.getCar().getPosition().getX() + direction.getValue(), 0)) == AreaContent.EMPTY))
             return false;
 
-        this.area.changeContentAt(this.player.getCar().getPosition(), AreaContent.EMPTY);
-        this.player.getCar().moveCar(direction);
-        this.area.changeContentAt(this.player.getCar().getPosition(), AreaContent.USER_CAR);
+        this.area.changeContentAt(this.area.getCar().getPosition(), AreaContent.EMPTY);
+        this.area.getCar().moveCar(direction);
+        this.area.changeContentAt(this.area.getCar().getPosition(), AreaContent.USER_CAR);
         return true;
 
     }

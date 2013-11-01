@@ -15,7 +15,7 @@ public class RandomPlayer extends Player
     {
         this.name = username;
         this.score = INITIAL_SCORE;
-        this.userCar = new Car(true);
+        //this.userCar = new Car(true);
     }
     
     /**
