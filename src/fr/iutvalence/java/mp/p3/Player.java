@@ -6,10 +6,7 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-//TODO FIXED you should separate the data associated with the player from the way the player
-//interacts with the game : this is not the case for the moment
-// 
-abstract class Player
+public abstract class Player
 {
     /**
      * Get a direction according to the class of player selected

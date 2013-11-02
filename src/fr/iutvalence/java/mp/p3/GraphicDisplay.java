@@ -13,7 +13,6 @@ public class GraphicDisplay implements Display
      * @param score
      *            score to display
      */
-    // TODO FIXED comply with naming conventions (parameters)
     public void displayScore(int score)
     {
         System.out.println(score);
@@ -26,7 +25,6 @@ public class GraphicDisplay implements Display
      *            road to display
      */
     // TODO graphic display
-    // TODO FIXED comply with naming conventions (parameters)
     public void displayArea(AreaContent[][] area)
     {
         String testArea = "TEST ZONE DE JEU \n";

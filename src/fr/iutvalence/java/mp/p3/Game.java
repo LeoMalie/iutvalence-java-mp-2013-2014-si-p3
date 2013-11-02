@@ -78,9 +78,7 @@ public class Game
     {
         if (this.area.checkUserCarCollision())
             return false;
-        // TODO FIXED simplify this method.
-        // check for collision first.
-        // use for loops instead of while
+      
         int lineNumber = Area.SIZE_HEIGHT - 1;
         Car a = new Car(false);
         this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);

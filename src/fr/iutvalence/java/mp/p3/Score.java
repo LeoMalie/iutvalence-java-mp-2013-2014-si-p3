@@ -15,8 +15,6 @@ public class Score
      * Current player pseudo for this score.
      */
     private String name;
-
-    // TODO FIXED this field is already declared in Area
  
     /**
      * Player score
