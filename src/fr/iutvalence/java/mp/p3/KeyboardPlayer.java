@@ -11,18 +11,7 @@ import java.util.Scanner;
  
 public class KeyboardPlayer extends Player
 {
-    
-    /**
-     * Constructor with the pseudo
-     * @param username pseudo of the player
-     */
-    public KeyboardPlayer(String username)
-    {
-        this.name = username;
-        this.score = INITIAL_SCORE;
-        this.userCar = new Car(true);
-    }
-    
+      
     /**
      * This function provides to get a direction enter by the user keyboard char
      * "4" for a left movement, char "6" for a right movement if other values,

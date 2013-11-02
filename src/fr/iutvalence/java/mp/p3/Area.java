@@ -92,6 +92,44 @@ public class Area
     {
         return this.userCar;
     }
+    
+    /**
+     * This function provides to get the user car position and check if a scroll won't cause
+     * a collision with a bot car
+     * @return true if collision, false else
+     */
+    public boolean checkUserCarCollision()
+    {
+        int columnIndex = this.userCar.getPosition().getX();
+        if (this.road[columnIndex][SIZE_HEIGHT - 2] != AreaContent.BOT_CAR)
+            return false;
+        return true;
+    }
+    
+    /**
+     * This function provides to scroll one line (used to simplify scrollRoad())
+     * @param lineNumber line to scroll
+     */
+    public void scrollOneLine(int lineNumber)
+    {
+        for (int columnNumber = 0; columnNumber < Area.SIZE_WIDTH; columnNumber++)
+        {
+            if (this.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
+            {
+                switch (this.getContentAt(new Position(columnNumber, lineNumber + 1)))
+                {
+                case EMPTY:
+                    this.changeContentAt(new Position(columnNumber, lineNumber + 1), AreaContent.BOT_CAR);
+                    this.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
+                    break;
+                case BOT_CAR:
+                    this.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
+                    break;
+                default : break;
+                }
+            }
+        }
+    }
 
     /**
      * This function provides to stock the road of the current area in a String

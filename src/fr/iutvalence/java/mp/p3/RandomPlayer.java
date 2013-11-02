@@ -7,16 +7,6 @@ package fr.iutvalence.java.mp.p3;
  */ 
 public class RandomPlayer extends Player
 {
-    /**
-     * Constructor with the pseudo
-     * @param username pseudo of the player
-     */
-    public RandomPlayer(String username)
-    {
-        this.name = username;
-        this.score = INITIAL_SCORE;
-        //this.userCar = new Car(true);
-    }
     
     /**
      * Chose and return a random direction

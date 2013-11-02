@@ -21,6 +21,11 @@ public class Game
      * Current player for this round
      */
     private Player player;
+    
+    /**
+     * Score for this round
+     */
+    private Score score;
 
     /**
      * Constructor for a new game with userName.The result is a game with an
@@ -33,8 +38,9 @@ public class Game
     public Game(String userName)
     {
         this.display = new AsciiDisplay();
-        this.player = new RandomPlayer(userName);
+        this.player = new RandomPlayer();
         this.area = new Area();
+        this.score = new Score();
     }
 
     /**
@@ -70,7 +76,9 @@ public class Game
      */
     private boolean scrollRoad()
     {
-        // TODO (fix) simplify this method.
+        if (this.area.checkUserCarCollision())
+            return false;
+        // TODO FIXED simplify this method.
         // check for collision first.
         // use for loops instead of while
         int lineNumber = Area.SIZE_HEIGHT - 1;
@@ -82,35 +90,12 @@ public class Game
                 this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
         }
         lineNumber--;
-        
-        while (lineNumber >= 0)
+        for (; lineNumber >= 0; lineNumber--)
         {
-            int columnNumber = 0;
-            while (columnNumber < Area.SIZE_WIDTH)
-            {
-                if (this.area.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
-                {
-                    switch (this.area.getContentAt(new Position(columnNumber, lineNumber + 1)))
-                    {
-                    case EMPTY:
-                        this.area.changeContentAt(new Position(columnNumber, lineNumber + 1),
-                                this.area.getContentAt(new Position(columnNumber, lineNumber)));
-                        this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
-                        break;
-                    case BOT_CAR:
-                        this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
-                        break;
-                    case USER_CAR:
-                        return false;
-                    }
-                }
-                columnNumber++;
-            }
-            columnNumber = 0;
-            lineNumber--;
+            this.area.scrollOneLine(lineNumber);
         }
         return true;
-    }
+    } 
 
     /**
      * This function will provide to start a game, for now just display the road
@@ -127,10 +112,10 @@ public class Game
             if (!this.scrollRoad() || !this.moveUserCar(this.player.getDirection()))
                 // Game over !
                 playerAlive = false;
-            this.player.upScore();
+            this.score.upScore();
         }
         // Score display
-        this.display.displayScore(this.player.getScore());
+        this.display.displayScore(this.score.getScore());
     }
 
 }

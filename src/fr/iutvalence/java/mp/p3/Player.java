@@ -6,56 +6,11 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-//TODO (fix) you should separate the data associated with the player from the way the player
+//TODO FIXED you should separate the data associated with the player from the way the player
 //interacts with the game : this is not the case for the moment
 // 
 abstract class Player
 {
-    /**
-     * Init score when a player is created
-     */
-    public static final int INITIAL_SCORE = 0;
-    
-    /**
-     * Current player pseudo.
-     */
-    protected String name;
-
-    // TODO FIXED this field is already declared in Area
- 
-    /**
-     * Player score
-     */
-    protected int score;
-
-    /**
-     * This function provides to grow up the player score
-     */
-    public void upScore()
-    {
-        this.score += 100;
-    }
-
-    /**
-     * This function provides to get the player name
-     * 
-     * @return player name
-     */
-    public String getName()
-    {
-        return this.name;
-    }
-
-    /**
-     * This function provides to get the player score
-     * 
-     * @return player score
-     */
-    public int getScore()
-    {
-        return this.score;
-    }
-    
     /**
      * Get a direction according to the class of player selected
      * @return direction to move to
