@@ -1,11 +1,13 @@
 package fr.iutvalence.java.mp.p3;
 
 /**
- * Main class provides to start this game
+ * Main class provides to start the game with :
+ *          - GUI display
+ *          - Random directions
  * 
  * @author maliel
  */ 
-public class Main
+public class GraphicRandomMain
 {
     /**
      * Display road test for now
@@ -15,7 +17,7 @@ public class Main
      */
     public static void main(String[] args)
     {
-        new Game("moi").play();
+        new Game("Jackson", new GraphicDisplay(), new RandomPlayer()).play();
     }
 
 }

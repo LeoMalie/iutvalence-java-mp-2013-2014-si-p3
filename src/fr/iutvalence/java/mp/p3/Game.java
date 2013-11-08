@@ -29,18 +29,22 @@ public class Game
 
     /**
      * Constructor for a new game with userName.The result is a game with an
-     * username chosen by the player, a score equals to 0, and a default number
+     * user name chosen by the player, a score equals to 0, and a default number
      * of lives.
      * 
      * @param userName
      *            userName chosen by the user
+     * @param display 
+     *            display type (Ascii/Graphic)
+     * @param player
+     *            player type (random/keyboard)
      */
-    public Game(String userName)
+    public Game(String userName, Display display, Player player)
     {
-        this.display = new AsciiDisplay();
-        this.player = new RandomPlayer();
+        this.display = display;
+        this.player = player;
         this.area = new Area();
-        this.score = new Score();
+        this.score = new Score(userName);
     }
 
     /**

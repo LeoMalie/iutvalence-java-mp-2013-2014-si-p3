@@ -22,6 +22,16 @@ public class Score
     private int score;
 
     /**
+     * Constructor with username 
+     * @param username player pseudo
+     */
+    public Score(String username)
+    {
+        this.name = username;
+        this.score = INITIAL_SCORE;
+    }
+    
+    /**
      * This function provides to grow up the player score
      */
     public void upScore()
