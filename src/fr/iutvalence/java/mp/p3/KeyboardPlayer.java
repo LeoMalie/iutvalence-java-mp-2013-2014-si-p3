@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 
  */
  
-public class KeyboardPlayer extends Player
+public class KeyboardPlayer implements Player
 {
       
     /**

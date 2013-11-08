@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-public abstract class Player
+public interface Player
 {
     /**
      * Get a direction according to the class of player selected

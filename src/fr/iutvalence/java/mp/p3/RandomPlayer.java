@@ -5,7 +5,7 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */ 
-public class RandomPlayer extends Player
+public class RandomPlayer implements Player
 {
     
     /**
