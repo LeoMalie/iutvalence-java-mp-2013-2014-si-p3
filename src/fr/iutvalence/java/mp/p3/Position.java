@@ -74,27 +74,30 @@ public class Position
      * This function provides to get the new player position according to the
      * direction chosen by the user
      * 
-     * @param d
+     * @param direction
      *            (FIXED/RIGHT/LEFT) used to actualize player position
      * @return new user car position
      */
-    public Position translateTo(Direction d)
+    public Position translateTo(Direction direction)
     {
-        int decallage = 0;
-        switch (d)
+        int shift = 0;
+        
+        // TODO (fix) shift has not to be computed here, since
+        // it is directly available from Direction
+        switch (direction)
         {
         case FIXED:
-            decallage = 0;
+            shift = 0;
             break;
         case RIGHT:
-            decallage = 1;
+            shift = 1;
             break;
         case LEFT:
-            decallage = -1;
+            shift = -1;
             break;
         }
-        if (this.x + decallage <= Area.SIZE_WIDTH - 1 && this.x + decallage >= 0)
-            this.x += decallage;
+        if (this.x + shift <= Area.SIZE_WIDTH - 1 && this.x + shift >= 0)
+            this.x += shift;
         return (new Position(this.x, 0));
     }
 

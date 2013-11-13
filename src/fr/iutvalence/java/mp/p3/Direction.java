@@ -24,27 +24,28 @@ public enum Direction
     FIXED(0);
 
     /**
-     * Deplacement horinzontal value
+     * Horizontal shift value
      */
-    private final int valueDeplacement;
+    private final int horizontalShiftValue;
 
     /**
-     * @param valueDeplacement
-     *            deplacement horizontal value
+     * Internal constructor
+     * @param horizontalShitValue
+     *            horizontal shift value
      */
-    Direction(int valueDeplacement)
+    Direction(int horizontalShitValue)
     {
-        this.valueDeplacement = valueDeplacement;
+        this.horizontalShiftValue = horizontalShitValue;
     }
 
     /**
      * This function provides to get the value according to the content
      * 
-     * @return deplacement horizontal value
+     * @return horizontal shift value
      */
-    public int getValue()
+    public int getHorizontalShiftValue()
     {
-        return this.valueDeplacement;
+        return this.horizontalShiftValue;
     } 
 
     /**
@@ -54,6 +55,8 @@ public enum Direction
      */
     public static Direction getRandomDirection()
     {
+        // TODO (fix) use values() method to rewrite this one 
+        // without necessarily knowing exactly what constants are defined
         switch (1 + (int) (Math.random() * 3))
         {
         case 1:
