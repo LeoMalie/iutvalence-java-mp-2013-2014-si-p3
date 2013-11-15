@@ -28,14 +28,14 @@ public class ThreadScroll extends Thread
     {
         while (this.game.scrollRoad())
         { 
-                try
-                {
-                        sleep(250);
-                }
-                catch (InterruptedException e)
-                {
-                        e.printStackTrace();
-                }
+            try
+            {
+                    sleep(250);
+            }
+            catch (InterruptedException e)
+            {
+                    e.printStackTrace();
+            }
         }
     }
 }
