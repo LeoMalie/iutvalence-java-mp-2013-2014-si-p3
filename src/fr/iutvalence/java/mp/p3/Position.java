@@ -80,22 +80,11 @@ public class Position
      */
     public Position translateTo(Direction direction)
     {
-        int shift = 0;
+        int shift = direction.getHorizontalShiftValue();
         
-        // TODO (fix) shift has not to be computed here, since
+        // TODO FIXED shift has not to be computed here, since
         // it is directly available from Direction
-        switch (direction)
-        {
-        case FIXED:
-            shift = 0;
-            break;
-        case RIGHT:
-            shift = 1;
-            break;
-        case LEFT:
-            shift = -1;
-            break;
-        }
+        
         if (this.x + shift <= Area.SIZE_WIDTH - 1 && this.x + shift >= 0)
             this.x += shift;
         return (new Position(this.x, 0));

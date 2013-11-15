@@ -10,13 +10,32 @@ public class ThreadScroll extends Thread
     /**
      * Area to scroll
      */
-    private Area area;
+    private GameScrollAsyncDeplaAsync game;
+
+    /**
+     * Constructor with an async game
+     * @param a asyn game
+     */
+    public ThreadScroll(GameScrollAsyncDeplaAsync a)
+    {
+        this.game = a;
+    }
 
     /**
      * Enable to start the thread
      */
     public void run()
     {
-        
+        while (this.game.scrollRoad())
+        { 
+                try
+                {
+                        sleep(250);
+                }
+                catch (InterruptedException e)
+                {
+                        e.printStackTrace();
+                }
+        }
     }
 }

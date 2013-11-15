@@ -1,5 +1,7 @@
 package fr.iutvalence.java.mp.p3;
 
+import java.util.Random;
+
 /**
  * Enum of the different representations of a direction
  * 
@@ -55,16 +57,10 @@ public enum Direction
      */
     public static Direction getRandomDirection()
     {
-        // TODO (fix) use values() method to rewrite this one 
+        // TODO FIXED use values() method to rewrite this one 
         // without necessarily knowing exactly what constants are defined
-        switch (1 + (int) (Math.random() * 3))
-        {
-        case 1:
-            return Direction.LEFT;
-        case 2:
-            return Direction.RIGHT;
-        default:
-            return Direction.FIXED;
-        }
+        
+        return Direction.values()[new Random().nextInt(Direction.values().length)];
+        
     }
 }

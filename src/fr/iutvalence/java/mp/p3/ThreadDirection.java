@@ -1,5 +1,7 @@
 package fr.iutvalence.java.mp.p3;
 
+import java.util.Random;
+
 /**
  * Thread for the player directions
  * @author maliel
@@ -11,7 +13,7 @@ public class ThreadDirection extends Thread
     /**
      * Position given by the player
      */
-    private Position pos;
+    private GameScrollAsyncDeplaAsync game;
     
     /**
      * Player type
@@ -20,12 +22,12 @@ public class ThreadDirection extends Thread
 
     /**
      * Constructor
-     * @param pos position
+     * @param game game
      * @param player player
      */
-    public ThreadDirection(Position pos, Player player)
+    public ThreadDirection(GameScrollAsyncDeplaAsync game, Player player)
     {
-            this.pos = pos;
+            this.game = game;
             this.player = player;
     }
 
@@ -34,11 +36,22 @@ public class ThreadDirection extends Thread
      */
     public void run()
     {
-        //TODO a finir
-            //Direction mouvement = Direction.FIXED;
-            //while (this.pos.translateTo(this.player.getDirection()))
-            //{
+        boolean moveUserOk = true;
+        
+        while (moveUserOk)
+        {
+            // 50% de chances de se déplacer
+            if (new Random().nextInt(2) == 0)
+                moveUserOk = this.game.moveUserCar(this.player.getDirection());
             
-            //}
+            try
+            {
+                    sleep(10);
+            }
+            catch (InterruptedException e)
+            {
+                    e.printStackTrace();
+            }
+        }
     }
 }

@@ -17,7 +17,12 @@ public class AsciiRandomMain
      */
     public static void main(String[] args)
     {
-        new Game("Jackson", new AsciiDisplay(), new RandomPlayer()).play();
+        GameScrollAsyncDeplaAsync a = new GameScrollAsyncDeplaAsync("Jackson", new AsciiDisplay(), new RandomPlayer());
+        // a.play();
+        ThreadScroll s = new ThreadScroll(a);
+        ThreadDirection d = new ThreadDirection(a, a.getPlayer());
+        s.start();
+        d.start();
     }
 
 }
