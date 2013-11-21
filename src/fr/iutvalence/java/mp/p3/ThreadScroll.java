@@ -2,8 +2,9 @@ package fr.iutvalence.java.mp.p3;
 
 /**
  * Thread for the area scroll
+ * 
  * @author maliel
- *
+ * 
  */
 public class ThreadScroll extends Thread
 {
@@ -14,7 +15,9 @@ public class ThreadScroll extends Thread
 
     /**
      * Constructor with an async game
-     * @param a asyn game
+     * 
+     * @param a
+     *            asyn game
      */
     public ThreadScroll(GameScrollAsyncDeplaAsync a)
     {
@@ -27,14 +30,14 @@ public class ThreadScroll extends Thread
     public void run()
     {
         while (this.game.scrollRoad())
-        { 
+        {
             try
             {
-                    sleep(250);
+                sleep(250);
             }
             catch (InterruptedException e)
             {
-                    e.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

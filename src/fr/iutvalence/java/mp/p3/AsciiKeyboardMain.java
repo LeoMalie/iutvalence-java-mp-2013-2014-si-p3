@@ -1,12 +1,11 @@
 package fr.iutvalence.java.mp.p3;
 
 /**
- * Main class provides to start the game with :
- *          - Ascii display
- *          - Keyboard directions
+ * Main class provides to start the game with : - Ascii display - Keyboard
+ * directions
  * 
  * @author maliel
- */ 
+ */
 public class AsciiKeyboardMain
 {
     /**

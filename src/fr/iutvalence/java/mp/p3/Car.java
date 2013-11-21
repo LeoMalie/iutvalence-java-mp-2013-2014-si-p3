@@ -1,8 +1,8 @@
 package fr.iutvalence.java.mp.p3;
 
-/** 
- * This class provides to create/move/destroy an user/bot car
- * A car has a position, a type, and can be destroy if needed
+/**
+ * This class provides to create/move/destroy an user/bot car A car has a
+ * position, a type, and can be destroy if needed
  * 
  * @author maliel
  * 

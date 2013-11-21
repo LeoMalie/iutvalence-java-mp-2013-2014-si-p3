@@ -1,9 +1,10 @@
 package fr.iutvalence.java.mp.p3;
 
-/** 
+/**
  * Test class for a ASCII display of the game
+ * 
  * @author maliel
- *
+ * 
  */
 public class AsciiDisplay implements Display
 {

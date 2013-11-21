@@ -32,6 +32,7 @@ public enum Direction
 
     /**
      * Internal constructor
+     * 
      * @param horizontalShitValue
      *            horizontal shift value
      */
@@ -48,7 +49,7 @@ public enum Direction
     public int getHorizontalShiftValue()
     {
         return this.horizontalShiftValue;
-    } 
+    }
 
     /**
      * This function provides to get a random direction
@@ -57,10 +58,6 @@ public enum Direction
      */
     public static Direction getRandomDirection()
     {
-        // TODO FIXED use values() method to rewrite this one 
-        // without necessarily knowing exactly what constants are defined
-        
         return Direction.values()[new Random().nextInt(Direction.values().length)];
-        
     }
 }

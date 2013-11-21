@@ -21,7 +21,7 @@ public class GameScrollAsyncDeplaAsync
      * Current player for this round
      */
     private Player player;
-    
+
     /**
      * Score for this round
      */
@@ -34,7 +34,7 @@ public class GameScrollAsyncDeplaAsync
      * 
      * @param userName
      *            userName chosen by the user
-     * @param display 
+     * @param display
      *            display type (Ascii/Graphic)
      * @param player
      *            player type (random/keyboard)
@@ -49,13 +49,14 @@ public class GameScrollAsyncDeplaAsync
 
     /**
      * This function provides to get the player
+     * 
      * @return player
      */
     public Player getPlayer()
     {
         return this.player;
     }
-    
+
     /**
      * This function provides to move the user car (created in the area
      * constructor), set EMPTY value in old car position and USER_CAR in the new
@@ -72,7 +73,8 @@ public class GameScrollAsyncDeplaAsync
                 + direction.getHorizontalShiftValue() <= Area.SIZE_WIDTH - 1))
             return true;
 
-        if (!(this.area.getContentAt(new Position(this.area.getCar().getPosition().getX() + direction.getHorizontalShiftValue(), 0)) == AreaContent.EMPTY))
+        if (!(this.area.getContentAt(new Position(this.area.getCar().getPosition().getX()
+                + direction.getHorizontalShiftValue(), 0)) == AreaContent.EMPTY))
             return false;
 
         this.area.changeContentAt(this.area.getCar().getPosition(), AreaContent.EMPTY);
@@ -81,7 +83,7 @@ public class GameScrollAsyncDeplaAsync
         return true;
 
     }
- 
+
     /**
      * This function provides to scroll the road Line + 1 <-- line
      * 
@@ -91,7 +93,7 @@ public class GameScrollAsyncDeplaAsync
     {
         if (this.area.checkUserCarCollision())
             return false;
-      
+
         int lineNumber = Area.SIZE_HEIGHT - 1;
         Car a = new Car(false);
         this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);
@@ -106,7 +108,7 @@ public class GameScrollAsyncDeplaAsync
             this.area.scrollOneLine(lineNumber);
         }
         return true;
-    } 
+    }
 
     /**
      * This function will provide to start a game, for now just display the road
@@ -120,6 +122,7 @@ public class GameScrollAsyncDeplaAsync
         {
             // Road display
             this.display.displayArea(this.area.getRoad());
+            // TODO (fix) user moves are not asynchronous
             if (!this.scrollRoad() || !this.moveUserCar(this.player.getDirection()))
                 // Game over !
                 playerAlive = false;

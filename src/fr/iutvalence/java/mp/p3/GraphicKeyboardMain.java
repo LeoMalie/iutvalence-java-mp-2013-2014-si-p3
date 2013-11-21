@@ -1,12 +1,11 @@
 package fr.iutvalence.java.mp.p3;
 
 /**
- * Main class provides to start the game with :
- *          - GUI display
- *          - Keyboard directions
+ * Main class provides to start the game with : - GUI display - Keyboard
+ * directions
  * 
  * @author maliel
- */ 
+ */
 public class GraphicKeyboardMain
 {
     /**

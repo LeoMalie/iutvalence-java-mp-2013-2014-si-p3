@@ -1,7 +1,9 @@
 package fr.iutvalence.java.mp.p3;
 
 /**
- * This class provides to up or get the current game score, and get the pseudo attached with
+ * This class provides to up or get the current game score, and get the pseudo
+ * attached with
+ * 
  * @author maliel
  */
 public class Score
@@ -10,27 +12,29 @@ public class Score
      * Init score when a player is created
      */
     public static final int INITIAL_SCORE = 0;
-    
+
     /**
      * Current player pseudo for this score.
      */
     private String name;
- 
+
     /**
      * Player score
      */
     private int score;
 
     /**
-     * Constructor with username 
-     * @param username player pseudo
+     * Constructor with username
+     * 
+     * @param username
+     *            player pseudo
      */
     public Score(String username)
     {
         this.name = username;
         this.score = INITIAL_SCORE;
     }
-    
+
     /**
      * This function provides to grow up the player score
      */
@@ -58,5 +62,5 @@ public class Score
     {
         return this.score;
     }
-    
+
 }

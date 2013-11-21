@@ -56,7 +56,7 @@ public class Area
     public AreaContent[][] getRoad()
     {
         return this.road;
-    } 
+    }
 
     /**
      * This method provides to change the value of a content
@@ -75,14 +75,16 @@ public class Area
     /**
      * This function provides to get the kind of a square(x,y) in the road
      * according to a position
-     * @param pos Position 
+     * 
+     * @param pos
+     *            Position
      * @return Content in (EMPTY/USER_CAR/BOT_CAR)
      */
     public AreaContent getContentAt(Position pos)
     {
         return this.road[pos.getX()][pos.getY()];
     }
-    
+
     /**
      * This function provides to get the player car
      * 
@@ -92,10 +94,11 @@ public class Area
     {
         return this.userCar;
     }
-    
+
     /**
-     * This function provides to get the user car position and check if a scroll won't cause
-     * a collision with a bot car
+     * This function provides to get the user car position and check if a scroll
+     * won't cause a collision with a bot car
+     * 
      * @return true if collision, false else
      */
     public boolean checkUserCarCollision()
@@ -105,10 +108,12 @@ public class Area
             return false;
         return true;
     }
-    
+
     /**
      * This function provides to scroll one line (used to simplify scrollRoad())
-     * @param lineNumber line to scroll
+     * 
+     * @param lineNumber
+     *            line to scroll
      */
     public void scrollOneLine(int lineNumber)
     {
@@ -125,7 +130,8 @@ public class Area
                 case BOT_CAR:
                     this.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
                     break;
-                default : break;
+                default:
+                    break;
                 }
             }
         }

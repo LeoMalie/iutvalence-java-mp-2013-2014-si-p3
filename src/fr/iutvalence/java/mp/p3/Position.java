@@ -69,7 +69,7 @@ public class Position
     {
         return this.y;
     }
- 
+
     /**
      * This function provides to get the new player position according to the
      * direction chosen by the user
@@ -81,10 +81,7 @@ public class Position
     public Position translateTo(Direction direction)
     {
         int shift = direction.getHorizontalShiftValue();
-        
-        // TODO FIXED shift has not to be computed here, since
-        // it is directly available from Direction
-        
+
         if (this.x + shift <= Area.SIZE_WIDTH - 1 && this.x + shift >= 0)
             this.x += shift;
         return (new Position(this.x, 0));

@@ -5,7 +5,7 @@ package fr.iutvalence.java.mp.p3;
  * 
  * @author maliel
  * 
- */ 
+ */
 public interface Display
 {
     /**

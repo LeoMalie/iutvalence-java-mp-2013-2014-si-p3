@@ -2,8 +2,9 @@ package fr.iutvalence.java.mp.p3;
 
 /**
  * Test class for a graphic display (with images !)
+ * 
  * @author maliel
- *
+ * 
  */
 public class GraphicDisplay implements Display
 {
@@ -46,7 +47,7 @@ public class GraphicDisplay implements Display
                 default:
                     testArea = testArea + "?";
                     break;
-                } 
+                }
             }
             testArea = testArea + "\n";
         }
