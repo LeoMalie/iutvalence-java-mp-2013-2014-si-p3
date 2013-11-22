@@ -5,7 +5,7 @@ package fr.iutvalence.java.mp.p3;
  * 
  * @author maliel
  */
-public class GameScrollAsyncDeplaAsync
+public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scrollable
 {
     /**
      * Current display
@@ -28,6 +28,11 @@ public class GameScrollAsyncDeplaAsync
     private Score score;
 
     /**
+     * Test boolean to know if the party should be stopped or not
+     */
+    private boolean isAlive;
+
+    /**
      * Constructor for a new game with userName.The result is a game with an
      * user name chosen by the player, a score equals to 0, and a default number
      * of lives.
@@ -39,7 +44,7 @@ public class GameScrollAsyncDeplaAsync
      * @param player
      *            player type (random/keyboard)
      */
-    public GameScrollAsyncDeplaAsync(String userName, Display display, Player player)
+    public GameScrollAsyncDeplaSync(String userName, Display display, Player player)
     {
         this.display = display;
         this.player = player;
@@ -91,23 +96,25 @@ public class GameScrollAsyncDeplaAsync
      */
     public boolean scrollRoad()
     {
-        if (this.area.checkUserCarCollision())
-            return false;
+        this.isAlive = !this.area.checkUserCarCollision();
 
-        int lineNumber = Area.SIZE_HEIGHT - 1;
-        Car a = new Car(false);
-        this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);
-        for (int columnNumber = 0; columnNumber < Area.SIZE_WIDTH; columnNumber++)
+        if (this.isAlive)
         {
-            if (this.area.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
-                this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
+            int lineNumber = Area.SIZE_HEIGHT - 1;
+            Car a = new Car(false);
+            this.area.changeContentAt(a.getPosition(), AreaContent.BOT_CAR);
+            for (int columnNumber = 0; columnNumber < Area.SIZE_WIDTH; columnNumber++)
+            {
+                if (this.area.getContentAt(new Position(columnNumber, lineNumber)) == AreaContent.BOT_CAR)
+                    this.area.changeContentAt(new Position(columnNumber, lineNumber), AreaContent.EMPTY);
+            }
+            lineNumber--;
+            for (; lineNumber >= 0; lineNumber--)
+            {
+                this.area.scrollOneLine(lineNumber);
+            }
         }
-        lineNumber--;
-        for (; lineNumber >= 0; lineNumber--)
-        {
-            this.area.scrollOneLine(lineNumber);
-        }
-        return true;
+        return this.isAlive;
     }
 
     /**
@@ -116,20 +123,27 @@ public class GameScrollAsyncDeplaAsync
      */
     public void play()
     {
-        boolean playerAlive = true;
+        this.isAlive = true;
         // Main loop
-        while (playerAlive)
+        while (this.isAlive)
         {
             // Road display
             this.display.displayArea(this.area.getRoad());
-            // TODO (fix) user moves are not asynchronous
-            if (!this.scrollRoad() || !this.moveUserCar(this.player.getDirection()))
-                // Game over !
-                playerAlive = false;
+            
+            // Même delai que pour le scroll pour éviter des affichages identiques
+            try
+            {
+                sleep(250);
+            }
+            catch (InterruptedException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
             this.score.upScore();
         }
         // Score display
         this.display.displayScore(this.score.getScore());
     }
-
 }

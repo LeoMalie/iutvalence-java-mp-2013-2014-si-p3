@@ -16,7 +16,7 @@ public class AsciiKeyboardMain
      */
     public static void main(String[] args)
     {
-        new GameScrollAsyncDeplaAsync("Jackson", new AsciiDisplay(), new KeyboardPlayer()).play();
+        new GameScrollAsyncDeplaSync("Jackson", new AsciiDisplay(), new KeyboardPlayer()).play();
     }
 
 }

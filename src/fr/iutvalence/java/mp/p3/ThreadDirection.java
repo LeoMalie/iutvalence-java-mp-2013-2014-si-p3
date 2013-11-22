@@ -10,11 +10,11 @@ import java.util.Random;
  */
 public class ThreadDirection extends Thread
 {
-
+//TODO FIXME
     /**
      * Position given by the player
      */
-    private GameScrollAsyncDeplaAsync game;
+    private GameScrollAsyncDeplaSync game;
 
     /**
      * Player type
@@ -29,7 +29,7 @@ public class ThreadDirection extends Thread
      * @param player
      *            player
      */
-    public ThreadDirection(GameScrollAsyncDeplaAsync game, Player player)
+    public ThreadDirection(GameScrollAsyncDeplaSync game, Player player)
     {
         this.game = game;
         this.player = player;

@@ -16,7 +16,7 @@ public class GraphicKeyboardMain
      */
     public static void main(String[] args)
     {
-        new GameScrollAsyncDeplaAsync("Jackson", new GraphicDisplay(), new KeyboardPlayer()).play();
+        new GameScrollAsyncDeplaSync("Jackson", new GraphicDisplay(), new KeyboardPlayer()).play();
     }
 
 }

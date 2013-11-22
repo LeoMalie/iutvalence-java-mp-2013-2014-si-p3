@@ -16,7 +16,7 @@ public class GraphicRandomMain
      */
     public static void main(String[] args)
     {
-        new GameScrollAsyncDeplaAsync("Jackson", new GraphicDisplay(), new RandomPlayer()).play();
+        new GameScrollAsyncDeplaSync("Jackson", new GraphicDisplay(), new RandomPlayer()).play();
     }
 
 }

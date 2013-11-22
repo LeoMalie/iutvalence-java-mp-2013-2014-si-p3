@@ -11,7 +11,7 @@ public class ThreadScroll extends Thread
     /**
      * Area to scroll
      */
-    private GameScrollAsyncDeplaAsync game;
+    private GameScrollAsyncDeplaSync game;
 
     /**
      * Constructor with an async game
@@ -19,7 +19,7 @@ public class ThreadScroll extends Thread
      * @param a
      *            asyn game
      */
-    public ThreadScroll(GameScrollAsyncDeplaAsync a)
+    public ThreadScroll(GameScrollAsyncDeplaSync a)
     {
         this.game = a;
     }
@@ -40,5 +40,6 @@ public class ThreadScroll extends Thread
                 e.printStackTrace();
             }
         }
+
     }
 }
