@@ -11,6 +11,7 @@ public class ThreadScroll extends Thread
     /**
      * Area to scroll
      */
+    // TODO (fix) this is not the right type to use here
     private GameScrollAsyncDeplaSync game;
 
     /**

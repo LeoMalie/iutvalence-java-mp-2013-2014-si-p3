@@ -27,6 +27,7 @@ public class KeyboardPlayer implements Player
         int choice = sc.nextInt();
         switch (choice)
         {
+        // TODO (fix) declare hard-coded values as constants
         case 4:
             sc.close();
             return Direction.LEFT;

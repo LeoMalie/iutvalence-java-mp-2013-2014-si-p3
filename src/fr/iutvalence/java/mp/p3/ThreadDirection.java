@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class ThreadDirection extends Thread
 {
-//TODO FIXME
+    // TODO (fix) this is not the right type to use here
     /**
      * Position given by the player
      */

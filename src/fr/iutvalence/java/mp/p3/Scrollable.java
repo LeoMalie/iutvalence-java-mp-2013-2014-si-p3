@@ -1,5 +1,6 @@
 package fr.iutvalence.java.mp.p3;
 
+// TODO (fix) finish writing comment
 /**
  * @author maliel
  *
