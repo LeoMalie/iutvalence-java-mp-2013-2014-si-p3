@@ -3,9 +3,9 @@ package fr.iutvalence.java.mp.p3;
 /**
  * This class represents a round of the game.
  * 
- * @author maliel
+ * @author maliel 
  */
-public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scrollable
+public class GameDeplaAsync extends Thread implements Deplacement, Scrollable, Game
 {
     /**
      * Current display
@@ -44,7 +44,7 @@ public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scr
      * @param player
      *            player type (random/keyboard)
      */
-    public GameScrollAsyncDeplaSync(String userName, Display display, Player player)
+    public GameDeplaAsync(String userName, Display display, Player player)
     {
         this.display = display;
         this.player = player;
@@ -70,7 +70,7 @@ public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scr
      *            direction
      * @return true if no collision, else false
      */
-    public boolean moveUserCar(Direction direction)
+    public boolean move(Direction direction)
     {
 
         if (!(this.area.getCar().getPosition().getX() + direction.getHorizontalShiftValue() >= 0 && this.area.getCar()
@@ -94,7 +94,7 @@ public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scr
      * 
      * @return boolean if collision return false, else true
      */
-    public boolean scrollRoad()
+    public boolean scroll()
     {
         this.isAlive = !this.area.checkUserCarCollision();
 
@@ -137,7 +137,6 @@ public class GameScrollAsyncDeplaSync extends Thread implements Deplacement, Scr
             }
             catch (InterruptedException e)
             {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             

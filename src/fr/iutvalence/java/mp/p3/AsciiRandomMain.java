@@ -16,7 +16,7 @@ public class AsciiRandomMain
      */
     public static void main(String[] args)
     {
-        GameScrollAsyncDeplaSync a = new GameScrollAsyncDeplaSync("Jackson", new AsciiDisplay(), new RandomPlayer());
+        GameDeplaAsync a = new GameDeplaAsync("Jackson", new AsciiDisplay(), new RandomPlayer());
         
         ThreadScroll s = new ThreadScroll(a);
         ThreadDirection d = new ThreadDirection(a, a.getPlayer());

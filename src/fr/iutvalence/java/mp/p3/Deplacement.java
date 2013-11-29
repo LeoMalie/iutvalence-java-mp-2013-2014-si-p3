@@ -1,8 +1,9 @@
 package fr.iutvalence.java.mp.p3;
 
 
-// TODO (fix) finish writing comment
+// TODO FIXED finish writing comment
 /**
+ * Interface for the user car movements (allow to use keyboard player or random)
  * @author maliel
  *
  */
@@ -16,6 +17,6 @@ public interface Deplacement
      *            direction
      * @return true if no collision, else false
      */
-    public boolean moveUserCar(Direction direction);
+    public boolean move(Direction direction);
     
 }

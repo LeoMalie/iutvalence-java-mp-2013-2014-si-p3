@@ -16,7 +16,17 @@ public class AsciiKeyboardMain
      */
     public static void main(String[] args)
     {
-        new GameScrollAsyncDeplaSync("Jackson", new AsciiDisplay(), new KeyboardPlayer()).play();
+        GameDeplaAsync a = new GameDeplaAsync("Jackson", new AsciiDisplay(), new KeyboardPlayer());
+        
+        ThreadScroll s = new ThreadScroll(a);
+        ThreadDirection d = new ThreadDirection(a, a.getPlayer());
+        
+        // Lancement des threads 
+        s.start();
+        d.start();
+        
+        // Lancement de la partie
+        a.play();
     }
 
 }

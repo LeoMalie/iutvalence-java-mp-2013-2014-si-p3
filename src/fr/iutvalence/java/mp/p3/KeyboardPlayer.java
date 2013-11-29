@@ -12,6 +12,15 @@ import java.util.Scanner;
 
 public class KeyboardPlayer implements Player
 {
+    /**
+     * Keyboard entry for left movement
+     */
+    public final static int LEFT = 4;
+    
+    /**
+     * Keyboard entry for right movement
+     */
+    public final static int RIGHT = 6;
 
     /**
      * This function provides to get a direction enter by the user keyboard char
@@ -27,11 +36,11 @@ public class KeyboardPlayer implements Player
         int choice = sc.nextInt();
         switch (choice)
         {
-        // TODO (fix) declare hard-coded values as constants
-        case 4:
+        // TODO FIXED declare hard-coded values as constants
+        case LEFT :
             sc.close();
             return Direction.LEFT;
-        case 6:
+        case RIGHT :
             sc.close();
             return Direction.RIGHT;
         default:

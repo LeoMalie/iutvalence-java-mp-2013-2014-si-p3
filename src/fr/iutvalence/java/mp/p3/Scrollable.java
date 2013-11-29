@@ -1,16 +1,17 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO (fix) finish writing comment
+// TODO FIXED finish writing comment
 /**
+ * Interface to scroll a scollable object
  * @author maliel
  *
  */
 public interface Scrollable
 {
     /**
-     * This function provides to scroll the road Line + 1 <-- line
+     * This function provides to scroll an object
      * 
-     * @return boolean if collision return false, else true
+     * @return boolean : if problem return false, else true
      */
-    public boolean scrollRoad();
+    public boolean scroll();
 }

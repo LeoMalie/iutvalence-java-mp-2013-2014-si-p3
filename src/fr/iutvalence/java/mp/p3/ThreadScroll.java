@@ -11,8 +11,8 @@ public class ThreadScroll extends Thread
     /**
      * Area to scroll
      */
-    // TODO (fix) this is not the right type to use here
-    private GameScrollAsyncDeplaSync game;
+    // TODO FIXED this is not the right type to use here
+    private Scrollable game;
 
     /**
      * Constructor with an async game
@@ -20,7 +20,7 @@ public class ThreadScroll extends Thread
      * @param a
      *            asyn game
      */
-    public ThreadScroll(GameScrollAsyncDeplaSync a)
+    public ThreadScroll(Scrollable a)
     {
         this.game = a;
     }
@@ -30,7 +30,7 @@ public class ThreadScroll extends Thread
      */
     public void run()
     {
-        while (this.game.scrollRoad())
+        while (this.game.scroll())
         {
             try
             {
