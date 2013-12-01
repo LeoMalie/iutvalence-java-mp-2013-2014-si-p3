@@ -5,7 +5,7 @@ package fr.iutvalence.java.mp.p3;
  * 
  * @author maliel 
  */
-public class GameDeplaAsync extends Thread implements Deplacement, Scrollable, Game
+public class AsynchronousModeGame extends Thread implements Movable, Scrollable, Playable
 {
     /**
      * Current display
@@ -44,7 +44,7 @@ public class GameDeplaAsync extends Thread implements Deplacement, Scrollable, G
      * @param player
      *            player type (random/keyboard)
      */
-    public GameDeplaAsync(String userName, Display display, Player player)
+    public AsynchronousModeGame(String userName, Display display, Player player)
     {
         this.display = display;
         this.player = player;

@@ -1,13 +1,11 @@
 package fr.iutvalence.java.mp.p3;
 
-
-// TODO FIXED finish writing comment
 /**
  * Interface for the user car movements (allow to use keyboard player or random)
  * @author maliel
  *
  */
-public interface Deplacement
+public interface Movable
 {
     /**
      * This function provides to move the user car (created in the area

@@ -1,6 +1,5 @@
 package fr.iutvalence.java.mp.p3;
 
-// TODO FIXED finish writing comment
 /**
  * Interface to scroll a scollable object
  * @author maliel

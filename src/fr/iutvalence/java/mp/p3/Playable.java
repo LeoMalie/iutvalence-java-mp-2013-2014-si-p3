@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.p3;
  * @author maliel
  *
  */
-public interface Game
+public interface Playable
 {
     /**
      * To start the game

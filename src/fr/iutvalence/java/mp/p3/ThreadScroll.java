@@ -11,7 +11,6 @@ public class ThreadScroll extends Thread
     /**
      * Area to scroll
      */
-    // TODO FIXED this is not the right type to use here
     private Scrollable game;
 
     /**

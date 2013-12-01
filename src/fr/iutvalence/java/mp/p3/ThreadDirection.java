@@ -10,11 +10,10 @@ package fr.iutvalence.java.mp.p3;
  */
 public class ThreadDirection extends Thread
 {
-    // TODO FIXED this is not the right type to use here
     /**
      * Position given by the player
      */
-    private Deplacement game;
+    private Movable game;
 
     /**
      * Player type
@@ -29,7 +28,7 @@ public class ThreadDirection extends Thread
      * @param player
      *            player
      */
-    public ThreadDirection(Deplacement game, Player player)
+    public ThreadDirection(Movable game, Player player)
     {
         this.game = game;
         this.player = player;

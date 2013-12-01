@@ -16,7 +16,12 @@ public class AsciiRandomMain
      */
     public static void main(String[] args)
     {
-        GameDeplaAsync a = new GameDeplaAsync("Jackson", new AsciiDisplay(), new RandomPlayer());
+        // TODO (fix) it seems to have a bug, the user car never moves
+        
+       
+        // TODO (fix) the game should no longer take player as parameter
+        // TODO (fix) this class extends thread, but no thread is started in main(s)
+        AsynchronousModeGame a = new AsynchronousModeGame("Jackson", new AsciiDisplay(), new RandomPlayer());
         
         ThreadScroll s = new ThreadScroll(a);
         ThreadDirection d = new ThreadDirection(a, a.getPlayer());
