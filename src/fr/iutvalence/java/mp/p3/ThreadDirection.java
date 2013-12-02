@@ -44,10 +44,24 @@ public class ThreadDirection extends Thread
         while (moveUserOk)
         {
             // 50% de chances de se déplacer
-            //if (new Random().nextInt(2) == 0)
+           //if (new Random().nextInt(2) == 0)
                 moveUserOk = this.game.move(this.player.getDirection());
+                
+           try
 
-            
+          {
+
+             sleep(10);
+
+          }
+
+             catch (InterruptedException e)
+
+          {
+
+             e.printStackTrace();
+
+          } 
         }
     }
 }

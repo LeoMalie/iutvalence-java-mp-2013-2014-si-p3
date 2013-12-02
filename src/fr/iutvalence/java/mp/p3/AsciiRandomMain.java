@@ -16,7 +16,7 @@ public class AsciiRandomMain
      */
     public static void main(String[] args)
     {
-        // TODO (fix) it seems to have a bug, the user car never moves
+        // TODO FIXED it seems to have a bug, the user car never moves
         
        
         // TODO (fix) the game should no longer take player as parameter
