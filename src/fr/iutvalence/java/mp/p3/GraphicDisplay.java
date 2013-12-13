@@ -1,7 +1,5 @@
 package fr.iutvalence.java.mp.p3;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
@@ -16,6 +14,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class GraphicDisplay extends JFrame implements Display
 {
+
     private JLabel[][] labels;
     
     private JLabel score;
@@ -29,7 +28,7 @@ public class GraphicDisplay extends JFrame implements Display
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        GridLayout gl = new GridLayout(SIZE_LAYOUT, SIZE_LAYOUT);
+    GridLayout gl = new GridLayout(SIZE_LAYOUT, SIZE_LAYOUT);
         gl.preferredLayoutSize(this);
         
         JPanel panelZone = new JPanel();
@@ -41,6 +40,20 @@ public class GraphicDisplay extends JFrame implements Display
         
         this.setContentPane(pan);               
         this.setVisible(true);
+    }
+
+    @Override
+    public void displayScore(int score)
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void displayArea(AreaContent[][] area)
+    {
+        // TODO Auto-generated method stub
+        
     }
     
     

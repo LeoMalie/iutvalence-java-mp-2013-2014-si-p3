@@ -5,27 +5,22 @@ package fr.iutvalence.java.mp.p3;
  * 
  * @author maliel 
  */
-public class AsynchronousModeGame extends Thread implements Movable, Scrollable, Playable
+public class AsynchronousModeGame implements Movable, Scrollable, Playable
 {
     /**
      * Current display
      */
-    private Display display;
+    private final Display display;
 
     /**
      * The current area for this round.
      */
-    private Area area;
-
-    /**
-     * Current player for this round
-     */
-    private Player player;
+    private final Area area;
 
     /**
      * Score for this round
      */
-    private Score score;
+    private final Score score;
 
     /**
      * Test boolean to know if the party should be stopped or not
@@ -41,25 +36,12 @@ public class AsynchronousModeGame extends Thread implements Movable, Scrollable,
      *            userName chosen by the user
      * @param display
      *            display type (Ascii/Graphic)
-     * @param player
-     *            player type (random/keyboard)
      */
-    public AsynchronousModeGame(String userName, Display display, Player player)
+    public AsynchronousModeGame(String userName, Display display)
     {
         this.display = display;
-        this.player = player;
         this.area = new Area();
         this.score = new Score(userName);
-    }
-
-    /**
-     * This function provides to get the player
-     * 
-     * @return player
-     */
-    public Player getPlayer()
-    {
-        return this.player;
     }
 
     /**
@@ -70,6 +52,7 @@ public class AsynchronousModeGame extends Thread implements Movable, Scrollable,
      *            direction
      * @return true if no collision, else false
      */
+    @Override
     public boolean move(Direction direction)
     {
 
@@ -94,6 +77,7 @@ public class AsynchronousModeGame extends Thread implements Movable, Scrollable,
      * 
      * @return boolean if collision return false, else true
      */
+    @Override
     public boolean scroll()
     {
         this.isAlive = !this.area.checkUserCarCollision();
@@ -117,10 +101,16 @@ public class AsynchronousModeGame extends Thread implements Movable, Scrollable,
         return this.isAlive;
     }
 
+    
+    public Score getScore()
+    {
+        return this.score;      
+    }
     /**
      * This function will provide to start a game, for now just display the road
      * with the standard output
      */
+    @Override
     public void play()
     {
         this.isAlive = true;
@@ -129,18 +119,6 @@ public class AsynchronousModeGame extends Thread implements Movable, Scrollable,
         {
             // Road display
             this.display.displayArea(this.area.getRoad());
-            
-            // Même delai que pour le scroll pour éviter des affichages identiques
-            try
-            {
-                sleep(250);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
-            
-            this.score.upScore();
         }
         // Score display
         this.display.displayScore(this.score.getScore());

@@ -16,10 +16,10 @@ public class AsciiKeyboardMain
      */
     public static void main(String[] args)
     {
-        AsynchronousModeGame a = new AsynchronousModeGame("Jackson", new AsciiDisplay(), new KeyboardPlayer());
-        
-        ThreadScroll s = new ThreadScroll(a);
-        ThreadDirection d = new ThreadDirection(a, a.getPlayer());
+        AsynchronousModeGame a = new AsynchronousModeGame("Jackson", new AsciiDisplay());
+        Player p = new KeyboardPlayer();
+        ThreadScroll s = new ThreadScroll(a, a.getScore());
+        ThreadDirection d = new ThreadDirection(a, p);
         
         // Lancement des threads 
         s.start();
